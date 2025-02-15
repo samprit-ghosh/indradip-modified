@@ -1,0 +1,249 @@
+
+
+    @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap");
+
+
+
+
+
+.testimonial-body {
+    margin: 0;
+    padding: 0;
+  display: grid;
+  place-items: center;
+  height: 110vh;
+background-image: url(../back-image/court-hammer.jpg);
+background-position:center;
+background-repeat: no-repeat;
+background-size:cover;
+background-color: rgba(0, 0, 0, 0.8);
+background-blend-mode: darken;
+color: white;
+}
+
+.test-h1 {
+  text-align: center;
+color: #ffffff;
+margin-bottom:20px;
+padding-bottom:0;
+margin-top:25px;
+}
+
+.test-button {
+  cursor: pointer;
+  border: none;
+}
+
+.testimonial-slider {
+  max-width: 1100px;
+  width: 90%;
+
+  padding: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 60px;
+
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-list {
+  display: flex;
+  overflow: hidden;
+}
+
+.testimonial {
+  flex: 1 0 100%;
+  text-align: center;
+
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.testimonial .bi-quote {
+  font-size: 4rem;
+  color: var(--sunglow);
+  opacity: 0.7;
+
+}
+
+.testimonial blockquote {
+  font-size: 1.25rem;
+  margin-inline: 20px;
+
+}
+
+.user-info {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.user-info img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.user-details .name {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--dark-cyan);
+}
+
+.user-details .company {
+  color: var(--muted-color);
+}
+
+
+
+.nav-test {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  background-color: var(--light-color);
+  color: var(--paynes-gray);
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.testimonial-slider:hover .nav-test {
+  opacity: 1;
+}
+
+.nav-test:hover {
+  background-color: red;
+  color: var(--light-color);
+}
+
+.nav-test.prev {
+  left: 10px;
+}
+
+.nav-test.next {
+  right: 10px;
+}
+
+
+
+.dots-container {
+  text-align: center;
+  margin:20px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: 5px;
+  margin-inline: 5px;
+  background-color: white;
+  transition: width 0.5s;
+}
+
+.dot.active {
+  width: 30px;
+  background-color:rgb(207, 1, 1);
+}
+
+
+
+@media(max-width:990px){
+  .dots-container {
+    text-align: center;
+    margin-top:80px;
+  }
+  .testimonial-body {
+    /* margin: 0;
+    padding: 0; */
+  display: grid;
+  place-items: center;
+  height: 140vh;
+/* background-image: url(../ba); */
+/* background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+background-color: rgba(0, 0, 0, 0.8);
+background-blend-mode: darken; */
+color: white;
+}
+
+
+}
+
+
+@media(max-width:565px){
+    .testimonial blockquote {
+        font-size: 1rem;
+        margin-inline: 15px;
+      
+      }
+   
+      .nav-test {
+        position: absolute;
+        top: 60%;
+        transform: translateY(-50%);
+        width: 42px;
+        height: 42px;
+        font-size: 1.5rem;
+        border-radius: 50%;
+        /* background-color: red;
+        color: black; */
+        transition: 0.3s;
+        opacity: 0;
+      }
+      
+    }
+    @media(max-width:400px){
+        .testimonial blockquote {
+            font-size: 1rem;
+            margin-inline: 15px;
+          
+          }
+          .nav-test {
+            position: absolute;
+            top: 57%;
+            transform: translateY(-50%);
+            width: 32px;
+            height: 32px;
+            font-size: 0.8rem;
+            border-radius: 50%;
+            background-color: var(--light-color);
+            color: var(--paynes-gray);
+            transition: 0.3s;
+            opacity: 0;
+            background-color: transparent;
+            color: white;
+          }
+          .dot.active {
+            width: 10px;
+            background-color:transparent;
+          }
+        }
+
+
+        @media(max-width:370px){
+
+          .testimonial blockquote {
+            font-size: 0.8rem;
+            margin-inline: 20px;
+            zoom: 95%;
+          
+          }
+          
+
+}
+        

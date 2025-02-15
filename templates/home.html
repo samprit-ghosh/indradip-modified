@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+
+</head>
+
+{% extends 'layout.html' %}
+{% block title %} Home{% endblock title %}
+{% block body %}
+     
+
+
+<body style="background-color: rgb(255, 255, 255);" class="home-body-responsive">
+
+  <div class="cookie-notice" id="notificationBox">
+    <div class="cookie-notice-flex">
+        <p class="cookies-p">Welcome {{ user.name }}! To Criminal Defense Attorney Dashboard You can Raise Quary here for free
+          These legal professionals Can help you to solve the matter.
+        <span class="cookie-notice-dismiss">
+            <svg class="svg-cookies"  viewBox="0 0 24 24">
+                <path class="cookies-path" d="M 2 2 L 22 22 M 2 22 L22 2" />
+            </svg>
+        </span>
+    </div>
+  </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  // JavaScript to toggle the "show" class and trigger the transition
+  setTimeout(function() {
+    var notificationBox = document.getElementById('notificationBox');
+    notificationBox.classList.add('show');
+  }, 3000); // Delay the appearance for 1 second (adjust as needed)
+</script>
+
+<script>
+  // Reset preference
+localStorage.removeItem('__cookiesAccepted__');
+
+
+(function() {
+
+    'use strict';
+    
+    
+    var storageKey = '__cookiesAccepted__';
+    
+    
+    if (!isStorageAllowed() || isSetPreference()) return;
+    
+    
+    initializeNotice();
+
+    
+    function initializeNotice() {
+        var el = document.querySelector('.cookie-notice');
+        var dismissEl = el.querySelector('.cookie-notice-dismiss');
+
+        el.style.display = 'block';
+
+        dismissEl.addEventListener('click', function() {
+            el.style.display = 'none';
+            setPreferenceAccepted();
+        }, false);
+    }
+    
+    
+    function setPreferenceAccepted() {
+        localStorage.setItem(storageKey, true);
+    }
+    
+    
+    function isSetPreference() {
+        return JSON.parse(localStorage.getItem(storageKey) || false);
+    }
+    
+    
+    function isStorageAllowed() {
+        var test = '__localStorageTest__';
+
+        try {
+            localStorage.setItem(test, test);
+            localStorage.removeItem(test);
+
+            return true;
+        } catch (e) {
+            console.warn('Storage not allowed, please allow cookies');
+            return false;
+        }
+    };
+    
+    
+}());
+
+</script>
+
+
+<!-- ///navbar// -->
+
+
+
+
+
+
+<div class="home-home">
+  
+  <section class="titles-home">
+
+   <b> <p  class="heading-p-home">Criminal Defense Attorney</p> </b>
+    <p>These legal professionals specialize in representing individuals or entities accused of criminal activities.</p>
+<br>
+<a href="#quary-form"><button type="" class= "free-button">Quary Now For Free</button>
+</a>
+  </section>
+
+
+  <section class="container-boxes-home">
+    <div class="box-home">
+
+      <div class="icon-home">
+        <a href=""><i class="fas fa-fire"></i></a>
+      </div>
+
+      <div class="text-home">
+        <a href="">
+         <b> <p style="color: rgb(0, 0, 0);font-size: larger; margin-top: 0; padding-top: 0;">The Dowry case</p></b>
+          <p>A client says that their lawyer treated them with respect and helped dismiss their felony and misdemeanor charges.</p>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="box-home">
+
+      <div class="icon-home">
+        <a href=""><i class="fas fa-seedling"></i></a>
+      </div>
+
+      <div class="text-home">
+        <a href="">
+         <b> <p style="color: rgb(0, 0, 0);font-size: larger;margin-top: 0; padding-top: 0;">The Fraudulent Case</p></b>
+          <p>" It’s hard to put into words what a great job these men did for me.  He know the law. I highly recommend using them on any case. "</p>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="box-home">
+
+      <div class="icon-home">
+        <a href=""><i class="fas fa-address-card"></i></a>
+      </div>
+
+      <div class="text-home">
+        <a href="">
+         <b> <p style="color: rgb(0, 0, 0); font-size: larger;margin-top: 0; padding-top: 0;">The criminal case</p></b>
+          <p>" I highly recommend using them on any case. I don’t know how I could’ve gotten through this without his help. "</p>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+
+
+
+
+
+
+
+  
+
+
+     <div class="testimonial-body">
+      <div class="testimonial-slider testimonial-body">
+        <h1 class="test-h1">What Our Clients Say</h1>
+  
+    
+        <div class="testimonial-list" role="region" aria-label="Testimonials">
+       
+          <div class="testimonial">
+
+            <!-- <i class="fas fa-quote"></i> -->
+  
+            <blockquote>
+              A client says that their lawyer treated them with respect and helped dismiss their felony and misdemeanor charges.
+              "Indradip was clear in his consultation and delivered on his actions. He gave an honest consultation and a fair price for his services. We were thankful for and impressed by the work Adam did for us. We highly recommend Indradip"
+            </blockquote>
+  
+       <br>
+       
+  <br>
+
+            <div class="user-info">
+              <img src="https://placehold.co/48?text=1" alt="" />
+              <div class="user-details">
+                <p class="name">Rajib Sammadar</p>
+                <p class="company">Sonarpur ps case</p>
+              </div>
+            </div>
+          </div>
+      
+          <div class="testimonial">
+   
+            <i class="bi bi-quote"></i>
+  
+            <blockquote>
+              It’s hard to put into words what a great job these men did for me.  He know the law. I highly recommend using them on any case. I don’t know how I could’ve gotten through this without his help.
+            </blockquote>
+            <br>
+       
+            <br>
+           
+            <div class="user-info">
+              <img src="https://placehold.co/48?text=2" alt="" />
+              <div class="user-details">
+                <p class="name">Piu Biswas</p>
+                <p class="company">Transgender P.P Case</p>
+              </div>
+            </div>
+          </div>
+  
+          <div class="testimonial">
+
+            <i class="bi bi-quote"></i>
+  
+            <blockquote>
+              A client says that their lawyer treated them with respect and helped dismiss their felony and misdemeanor charges.
+              It’s hard to put into words what a great job these men did for me.  He know the law. I highly recommend using them on any case. I don’t know how I could’ve gotten through this without his help.
+            </blockquote>
+            <br>
+       
+            <br>
+            <div class="user-info">
+              <img src="https://placehold.co/48?text=3" alt="" />
+              <div class="user-details">
+                <p class="name">Rajib Sammadar</p>
+                <p class="company">Sonarpur ps case</p>
+              </div>
+            </div>
+          </div>
+        
+        </div>
+
+
+        <button class="nav-test prev test-button" aria-label="Previous Testimonial">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+  
+        <button class="nav-test next test-button" aria-label="Next Testimonial">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+<br>
+        <div class="dots-container"></div>
+ 
+      </div>
+      </div>
+    
+<!-- <script src="../static/js/home.js"></script>  -->
+<script type="text/javascript" src="{{ url_for('static', filename='js/home.js') }}"></script>
+
+
+
+
+<!-- \\\\\\\\\\\\\\\\\\\\\\\\alert box///////////////////////////////// -->
+
+ <script>
+  // Function to show the alert box
+  function showAlert() {
+      document.getElementById('overlay').style.display = 'flex';
+  }
+  function hideAlert() {
+        document.getElementById('overlay').style.display = 'none';
+    }
+    function hideSuccess() {
+        document.getElementById('overlay-success').style.display = 'none';
+    }
+  function showSuccess() {
+      document.getElementById('overlay-success').style.display = 'flex';
+  }
+  function resForm() {
+        // Get input values
+        var name = document.getElementById('name').value;
+        var surname = document.getElementById('surname').value;
+        var email = document.getElementById('email').value;
+        var phone = document.getElementById('phone').value;
+        // Check if fields are empty
+        if (name === '' || surname === '' || email === '' || phone === '') {
+            showAlert(); // Show alert if fields are empty
+          //  document.getElementById('quary-form').reset();
+          // alert("hgfhjk");
+            return  false;
+
+           // Prevent form submission
+        }
+
+        // You can add more complex validation logic here if needed
+        showSuccess();
+        return true; // Allow form submission
+    }
+
+
+
+
+ </script> 
+
+<!-- /////////////////////////////////////////////// -->
+
+
+<form class="my-form-quary" action="{{ url_for('home') }}" method="post" id="quary-form">
+  <div class="container-quary">
+    <h1 style="color: black;">Raise A Query!</h1>
+    <ul>
+      <li>
+        <select class="quary-select" name="category" required>
+          <option selected disabled value="">-- Please choose an option --</option>
+          <option value="Request Quote">Request Quote</option>
+          <option value="Criminal">Criminal</option>
+          <option value="Domestic">Domestic</option>
+          <option value="Other">Other</option>      
+        </select>
+      </li>
+      <li>
+        <div class="grid grid-2">
+          <input class="quary-input" type="text" placeholder="First Name" name="fname" required>  
+          <input class="quary-input" type="text" placeholder="Last Name" name="lname" required>
+        </div>
+      </li>
+      <li>
+        <div class="grid grid-2">
+          <input class="quary-input" type="email" placeholder="Email" name="email" required>  
+          <input class="quary-input" type="text" placeholder="Phone" name="phone" required>
+        </div>
+      </li>    
+      <li>
+        <textarea class="quary-input" placeholder="Message" name="message" style="resize: none;" required></textarea>
+      </li>   
+      <br>
+      <li>
+        <input type="checkbox" id="terms" required>
+        <label for="terms" class="quary-label">
+          I have read and agreed with <a href="">the terms and conditions.</a>
+        </label>
+      </li>  
+      <br>
+      <li>
+        <div class="grid grid-3">
+          <div class="required-msg">REQUIRED FIELDS</div>
+          <button class="btn-grid" type="submit">
+            <span class="back">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/email-icon.svg" alt="">
+            </span>
+            <span class="front">SUBMIT</span>
+          </button>
+
+          <button class="btn-grid" type="reset">
+            <span class="back">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/eraser-icon.svg" alt="">
+            </span>
+            <span class="front">RESET</span>
+          </button> 
+        </div>
+      </li>    
+    </ul>
+  </div>
+</form>
+
+
+<!-- <form class="my-form-quary" action="/home" method="post"  id="quary-form">
+  <div class="container-quary">
+    <h1 style="color: black;">Raise A Query!</h1>
+    <ul>
+      <li>
+        <select class="quary-select">
+          <option selected disabled>-- Please choose an option --</option>
+          <option>Request Quote</option>
+          <option>Criminal</option>
+          <option>Domestic</option>
+          <option>Other</option>      
+        </select>
+      </li>
+      <li>
+        <div class="grid grid-2">
+          <input class="quary-input" type="text" placeholder="Name" id="name" name="fname" >  
+          <input class="quary-input" type="text" placeholder="Surname" id="surname" name="lname" >
+        </div>
+      </li>
+      <li>
+        <div class="grid grid-2">
+          <input class="quary-input" type="email" placeholder="Email" id="email" name="email" >  
+          <input class="quary-input" type="text" placeholder="Phone" id="phone" name="phone" >
+        </div>
+      </li>    
+      <li>
+        <textarea placeholder="Message" name="message" style="resize: none;font-size: 100%;"></textarea>
+      </li>   
+      <li>
+        <input class="quary-input" type="checkbox" id="terms">
+        <label for="terms" class="quary-label">I have read and agreed with <a href="">the terms and conditions.</a></label>
+      </li>  
+      <br>
+      <li>
+        <div class="grid grid-3">
+          <div class="required-msg">REQUIRED FIELDS</div>
+          <button class="btn-grid" type="submit" onclick="resForm()" disabled>
+            <span class="back">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/email-icon.svg" alt="">
+            </span>
+            <span class="front">SUBMIT</span>
+          </button>
+
+   
+
+
+<div id="overlay" class="overlay-alert">
+    <div class="alert-box">
+        <p>You Need to fill Required Fields!</p>
+        <br>
+        <button class="close-btn-alert" onclick="hideAlert()">Failed</button>
+    </div>
+</div>
+
+<div id="overlay-success" class="overlay-success">
+  <div class="success-box">
+      <p>Mail Sent Successfully!</p>
+      <br>
+      <button class="close-btn-success"onclick="hideSuccess()">Success</button>
+  </div>
+</div>
+
+
+          <button class="btn-grid" type="reset" disabled>
+            <span class="back">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/eraser-icon.svg" alt="">
+            </span>
+            <span class="front">RESET</span>
+          </button> 
+        </div>
+      </li>    
+    </ul>
+  </div>
+</form> -->
+<script> 
+  const checkbox = document.querySelector('.my-form-quary input[type="checkbox"]');
+const btns = document.querySelectorAll(".my-form-quary button");
+
+checkbox.addEventListener("change", function() {
+  const checked = this.checked;
+  for (const btn of btns) {
+    checked ? (btn.disabled = false) : (btn.disabled = true);
+  }
+});
+ </script>
+
+<!-- \\\\\\\\\\\\\\\\\\\\\\\\alert box///////////////////////////////// -->
+</body>
+
+
+
+{% endblock body %}
+
+
+
+
+</html>

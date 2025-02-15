@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+</head>
+
+{% extends 'layout.html' %}
+{% block title %} Home{% endblock title %}
+{% block body %}
+
+<body>
+   
+
+    {% with messages = get_flashed_messages(with_categories=True) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <p style="color: red;">{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <!-- <form method="POST">
+        <label>Username:</label>
+        <input type="text" name="username" required><br>
+
+        <label>Password:</label>
+        <input type="password" name="password" required><br>
+
+        <button type="submit">Login</button>
+    </form> -->
+
+
+    <div class="login-body">
+
+      <div class="container-login">
+        <form action="#" autocomplete="off" class="form-login" method="POST">
+          <h2 class="h2-login">Sign In</h2>
+          <div class="uc"><b>Samprit Coding</b></div>
+    
+          <div class="inputBox-login">
+            <input type="text" id="user" name="username" required>
+            <label for="username">Username</label>
+          </div>
+    
+          <div class="inputBox-login">
+            <input type="password" id="pass" name="password" required>
+            <label for="username">Enter Password</label>
+          </div>
+    
+          <input type="submit" value="Login">
+          <div class="link-container">
+            <a href="#">Forgot Password?</a>
+          </div>
+    
+        </form>
+      </div>
+    
+    </div>
+</body>
+{% endblock body %}
+
+</html>

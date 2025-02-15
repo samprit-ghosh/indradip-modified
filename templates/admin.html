@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin's Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+
+</head>
+
+
+
+
+{% extends 'layout.html' %}
+{% block title %} Home{% endblock title %}
+{% block body %}
+
+
+
+<body class="admin-body" style="  background-color: black;">
+  <style>
+    .admin-body{
+      background-color: black;
+    }
+
+    .container-admin{
+      padding: 3rem;
+
+    }
+        
+        table {
+        border: 1px solid #ffffff;
+        border-collapse: collapse;
+        margin: 0;
+        padding: 20px;
+        justify-self: center;
+        width: 100%;
+      /*   table-layout: fixed; */
+      }
+      
+      table caption {
+        font-size: 2em;
+        margin: .5em 0 .75em;
+        color: #e40404;
+      }
+      
+      table tr {
+        /* background-color: rgba(185, 23, 23, 0.321); */
+        color: rgb(255, 255, 255);
+        border: 1px solid #ddd;
+        padding: .35em;
+      }
+      
+      table th,
+      table td {
+        padding: .625em;
+        text-align: center;
+    
+      }
+      
+      table th {
+        font-size: 1em;
+        letter-spacing: .1em;
+        color: #ffa008;
+        text-transform: uppercase;
+      }
+      
+      @media screen and (max-width: 800px) {
+        table {
+          border: 0;
+        }
+      
+        table caption {
+          font-size: 1.3em;
+        }
+        
+        table thead {
+          border: none;
+          clip: rect(0 0 0 0);
+          height: 1px;
+          margin: -1px;
+          overflow: hidden;
+          padding: 0;
+          position: absolute;
+          width: 1px;
+        }
+        
+        table tr {
+          border-bottom: 3px solid #ddd;
+          display: block;
+          margin-bottom: .625em;
+        }
+        
+        table td {
+          border-bottom: 1px solid #ddd;
+          display: block;
+          font-size: .8em;
+          text-align: right;
+        }
+        
+        table td::before {
+          /*
+          * aria-label has no advantage, it won't be read inside a table
+          content: attr(aria-label);
+          */
+          content: attr(data-label);
+          float: left;
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+        
+        table td:last-child {
+          border-bottom: 0;
+        }
+      }
+    
+    
+    .unique-pagination{
+    margin: 0;
+    padding: 0;
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    }
+      
+      
+  </style>
+
+
+  <div class="container-admin">
+    <h2 style="color: white; margin-top: 0;">Select Number Of Rows</h2>
+    <div class="form-group">
+      <select class="form-control" name="state" id="maxRows">
+        <option value="5000">Show ALL Rows</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+        <option value="50">50</option>
+        <option value="70">70</option>
+        <option value="100">100</option>
+      </select>
+
+    </div>
+
+    <!-- <table class="table table-striped table-class" id="table-id">
+
+      <thead>
+        <tr>
+   
+          <th>Category</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Message</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        {% for query in queries %}
+        <tr>
+         
+            <td>{{ query.category }}</td>
+            <td>{{ query.first_name }}</td>
+            <td>{{ query.last_name }}</td>
+            <td>{{ query.email }}</td>
+            <td>{{ query.phone }}</td>
+            <td>{{ query.message }}</td>
+        </tr>
+        {% endfor %}
+
+      </tbody>
+
+    </table> -->
+
+
+    <table id="dataTable">
+      <caption>Appoinntment Dashboard</caption>
+      <thead>
+          <tr>
+            <th>ID</th>
+            <th>Category</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Message</th>
+            <th>Delete</th>
+        
+        </tr>
+      </thead>
+      <tbody>
+          <!-- Reverse order -->
+          {% for query in queries %}
+          <tr>
+              <td data-label="id">{{ query.id }}</td>
+              <td data-label="category">{{ query.category }}</td>
+              <td data-label="Name">{{ query.first_name }} {{ query.last_name }}</td>
+              <td data-label="Email">{{ query.email }}</td>
+              <td data-label="Phone">{{ query.phone }}</td>
+              <td data-label="Message">{{ query.message }}</td>
+              <td data-label="Delete">
+                <form action="{{ url_for('delete_query', id=query.id) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this record?');">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+          </tr>
+          {% endfor %}
+    
+      </tbody>
+    </table>
+    
+
+
+
+
+    
+<br>
+    <div style="display: flex; gap: 20px;">
+
+
+
+      <button id="btn" class="btn btn-danger" 
+        onclick="exportTableToCSV('allowance.csv')">Download</button>
+
+      <a href="/logout">
+        <button id="" class="btn btn-danger" >Logout</button></a>
+
+    </div>
+
+    <script>
+      function downloadCSV(csv, filename) {
+        var csvFile;
+        var downloadLink;
+
+        // CSV file
+        csvFile = new Blob([csv], { type: "text/csv" });
+
+        // Download link
+        downloadLink = document.createElement("a");
+
+        // File name
+        downloadLink.download = filename;
+
+        // Create a link to the file
+        downloadLink.href = window.URL.createObjectURL(csvFile);
+
+        // Hide download link
+        downloadLink.style.display = "none";
+
+        // Add the link to DOM
+        document.body.appendChild(downloadLink);
+
+        // Click download link
+        downloadLink.click();
+      }
+
+
+
+      function exportTableToCSV(filename) {
+        var csv = [];
+        var rows = document.querySelectorAll("table tr");
+
+        for (var i = 0; i < rows.length; i++) {
+          var row = [], cols = rows[i].querySelectorAll("td, th");
+
+          for (var j = 0; j < cols.length; j++)
+            row.push(cols[j].innerText);
+
+          csv.push(row.join(","));
+        }
+
+        // Download CSV file
+        downloadCSV(csv.join("\n"), filename);
+      }
+    </script>
+
+
+    <div class='pagination-container'>
+      <nav>
+        <ul class="pagination">
+
+          <li data-page="prev">
+            <span>
+              < <span class="sr-only">(current)
+            </span></span>
+          </li>
+
+          <li data-page="next" id="prev">
+            <span> > <span class="sr-only">(current)</span></span>
+          </li>
+        </ul>
+      </nav>
+    </div>
+</div>
+</body>
+
+{% endblock body %}
+
+<script>
+  getPagination('#table-id');
+
+
+
+  function getPagination(table) {
+    var lastPage = 1;
+
+    $('#maxRows')
+      .on('change', function (evt) {
+        //$('.paginationprev').html('');            // reset pagination
+
+        lastPage = 1;
+        $('.pagination')
+          .find('li')
+          .slice(1, -1)
+          .remove();
+        var trnum = 0; // reset tr counter
+        var maxRows = parseInt($(this).val()); // get Max Rows from select option
+
+        if (maxRows == 5000) {
+          $('.pagination').hide();
+        } else {
+          $('.pagination').show();
+        }
+
+        var totalRows = $(table + ' tbody tr').length; // numbers of rows
+        $(table + ' tr:gt(0)').each(function () {
+          // each TR in  table and not the header
+          trnum++; // Start Counter
+          if (trnum > maxRows) {
+            // if tr number gt maxRows
+
+            $(this).hide(); // fade it out
+          }
+          if (trnum <= maxRows) {
+            $(this).show();
+          } // else fade in Important in case if it ..
+        }); //  was fade out to fade it in
+        if (totalRows > maxRows) {
+          // if tr total rows gt max rows option
+          var pagenum = Math.ceil(totalRows / maxRows); // ceil total(rows/maxrows) to get ..
+          //  numbers of pages
+          for (var i = 1; i <= pagenum;) {
+            // for each page append pagination li
+            $('.pagination #prev')
+              .before(
+                '<li data-page="' +
+                i +
+                '">\
+                  <span>' +
+                i++ +
+                '<span class="sr-only">(current)</span></span>\
+                </li>'
+              )
+              .show();
+          } // end for i
+        } // end if row count > max rows
+        $('.pagination [data-page="1"]').addClass('active'); // add active class to the first li
+        $('.pagination li').on('click', function (evt) {
+          // on click each page
+          evt.stopImmediatePropagation();
+          evt.preventDefault();
+          var pageNum = $(this).attr('data-page'); // get it's number
+
+          var maxRows = parseInt($('#maxRows').val()); // get Max Rows from select option
+
+          if (pageNum == 'prev') {
+            if (lastPage == 1) {
+              return;
+            }
+            pageNum = --lastPage;
+          }
+          if (pageNum == 'next') {
+            if (lastPage == $('.pagination li').length - 2) {
+              return;
+            }
+            pageNum = ++lastPage;
+          }
+
+          lastPage = pageNum;
+          var trIndex = 0; // reset tr counter
+          $('.pagination li').removeClass('active'); // remove active class from all li
+          $('.pagination [data-page="' + lastPage + '"]').addClass('active'); // add active class to the clicked
+          // $(this).addClass('active');          // add active class to the clicked
+          limitPagging();
+          $(table + ' tr:gt(0)').each(function () {
+            // each tr in table not the header
+            trIndex++; // tr index counter
+            // if tr index gt maxRows*pageNum or lt maxRows*pageNum-maxRows fade if out
+            if (
+              trIndex > maxRows * pageNum ||
+              trIndex <= maxRows * pageNum - maxRows
+            ) {
+              $(this).hide();
+            } else {
+              $(this).show();
+            } //else fade in
+          }); // end of for each tr in table
+        }); // end of on click pagination list
+        limitPagging();
+      })
+      .val(5)
+      .change();
+
+    // end of on select change
+
+    // END OF PAGINATION
+  }
+
+  function limitPagging() {
+    // alert($('.pagination li').length)
+
+    if ($('.pagination li').length > 7) {
+      if ($('.pagination li.active').attr('data-page') <= 3) {
+        $('.pagination li:gt(5)').hide();
+        $('.pagination li:lt(5)').show();
+        $('.pagination [data-page="next"]').show();
+      } if ($('.pagination li.active').attr('data-page') > 3) {
+        $('.pagination li:gt(0)').hide();
+        $('.pagination [data-page="next"]').show();
+        for (let i = (parseInt($('.pagination li.active').attr('data-page')) - 2); i <= (parseInt($('.pagination li.active').attr('data-page')) + 2); i++) {
+          $('.pagination [data-page="' + i + '"]').show();
+
+        }
+
+      }
+    }
+  }
+
+  $(function () {
+    // Just to append id number for each row
+    $('table tr:eq(0)').prepend('<th> ID </th>');
+
+    var id = 0;
+
+    $('table tr:gt(0)').each(function () {
+      id++;
+      $(this).prepend('<td>' + id + '</td>');
+    });
+  });
+</script>
+
+</html>
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 18px;
+            text-align: left;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+
+</html> -->

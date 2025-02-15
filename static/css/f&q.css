@@ -1,0 +1,153 @@
+/* <style> */
+    @import url('https://fonts.googleapis.com/css?family=Hind:300,400&display=swap');
+
+
+.fq-container {
+  margin: 0;
+  padding: 0;
+  font-family: 'Hind', sans-serif;
+  background: #fff;
+  color: #c22127;
+  display: flex;
+  min-height: fit-content;
+  padding-bottom: 100px;
+  
+}
+
+.container-question {
+  margin: 0 ;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  width: 100%;
+  /* background-color: #c22127; */
+}
+
+.accordion .accordion-item {
+  border-bottom: 1px solid #000000;
+}
+
+.accordion .accordion-item button[aria-expanded='true'] {
+  border-bottom: 1px solid #000000;
+}
+
+.accordion button {
+  position: relative;
+  display: block;
+  text-align: left;
+  width: 100%;
+  padding: 1em 0;
+
+  color: black;
+  font-size: 1.15rem;
+  font-weight: 400;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.accordion button:hover,
+.accordion button:focus {
+  cursor: pointer;
+  color: rgb(194, 25, 25);
+}
+
+.accordion button:hover::after,
+.accordion button:focus::after {
+  cursor: pointer;
+  color: black;
+  border: 1px solid #c22127;
+}
+
+.accordion button .accordion-title {
+  padding: 1em 1.5em 1em em;
+  /* margin-right:20px; */
+}
+
+.accordion button .icon {
+  display: inline-block;
+  position: absolute;
+  top: 18px;
+  right: 0;
+  width: 22px;
+  height: 22px;
+  border: 1px solid;
+  border-radius: 22px;
+  margin-left:10px;
+}
+
+.accordion button .icon::before {
+  display: block;
+  position: absolute;
+  content: '';
+  top: 9px;
+  left: 5px;
+  width: 10px;
+  height: 2px;
+  background: currentColor;
+}
+.accordion button .icon::after {
+  display: block;
+  position: absolute;
+  content: '';
+  top: 5px;
+  left: 9px;
+  width: 2px;
+  height: 10px;
+  background: currentColor;
+}
+
+.accordion button[aria-expanded='true'] {
+  color: black;
+}
+.accordion button[aria-expanded='true'] .icon::after {
+  width: 0;
+}
+.accordion button[aria-expanded='true'] + .accordion-content {
+  opacity: 1;
+  max-height: 40em;
+  transition: all 200ms linear;
+  will-change: opacity, max-height;
+}
+.accordion .accordion-content {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 200ms linear, max-height 200ms linear;
+  will-change: opacity, max-height;
+}
+.accordion .accordion-content p {
+  font-size: 1rem;
+  font-weight: 300;
+  margin: 2em 0;
+  /* margin-bottom:20px; */
+  /* height: 10vh; */
+}
+
+@media(max-width:1240px){
+  .fq-container {
+    margin: 0;
+    padding: 0;
+    font-family: 'Hind', sans-serif;
+    background: #fff;
+    color: #c22127;
+    display: flex;
+    min-height: fit-content;
+    padding-bottom: 100px;
+    
+  }
+}
+
+
+@media(max-width:490px){
+  .fq-container {
+  zoom:95%;
+    
+  }
+
+  .accordion-title{
+    margin-right: 35px;
+
+  }
+}
+
+    /* </style> */

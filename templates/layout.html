@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advocate Indradip Chakraborty,Criminal lawyer | {% block title %}{% endblock title %}</title>
+    <script type='text/javascript'
+    src='https://www.strategiccriminaldefence.com/wp-includes/js/jquery/jquery.min.js?ver=3.6.0'
+    id='jquery-core-js'></script>
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/login.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='css/header.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='css/home-top-section.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='css/home.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/contact.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/footer.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/f&q.css')}}">
+<link rel = "stylesheet" type="text/css" href="{{url_for('static',filename='css/index2.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/index.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/alertbox.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/quary.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/cookies.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/all.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/login.css')}}">
+<link rel="shortcut icon" href="../static/back-image/icon.png" type="image/x-icon">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+crossorigin="anonymous"
+referrerpolicy="no-referrer"
+/>
+
+
+<!-- <link rel="stylesheet" href="../static/css/header.css">
+    
+<link rel="stylesheet" href="../static/css/footer.css">   -->
+</head>
+          
+  <!-- site-navbar start -->
+    <div class="navbar-area">
+      <div class="container-nav">
+        {% set user_logged_in = session.get('google_id') %} 
+        {% set is_home = request.path == '/' %}
+        
+        <nav class="site-navbar">
+            <a href="/" class="" style="text-decoration: none;">
+                <p class="site-logo">
+                    <img src="../static/back-image/court-hammer.jpg" alt="" class="nav-img-icon">
+                    Indradip
+                </p>
+            </a>
+        
+            <ul>
+                {% if not is_home %}
+                    <li><a href="/">home</a></li>
+                {% endif %}
+                <li><a href="/contact">contact</a></li>
+        
+                {% if session.get('user') %}
+                <li><a href="/logout">Logout</a></li>
+            {% else %}
+                <li><a href="/login">Login</a></li>
+            {% endif %}
+            
+                        <!-- <li><a href="/logout">Logout</a></li> -->
+                        <li>
+                          <img 
+                            src="{% if user and user.picture %}{{ user.picture }}{% else %}{{ url_for('static', filename='back-image/img-icon.webp') }}{% endif %}"
+                            alt="user image"
+                            class="login-img"
+                          >
+                        </li>
+                        
+            
+            </ul>
+        
+            <button class="nav-toggler">
+                <span></span>
+            </button>
+        </nav>
+        
+      </div>
+      </div>
+     
+    
+
+
+
+    <script>
+      // define all UI variable
+    const navToggler = document.querySelector('.nav-toggler');
+    const navMenu = document.querySelector('.site-navbar ul');
+    const navLinks = document.querySelectorAll('.site-navbar a');
+    
+    // load all event listners
+    allEventListners();
+    
+    // functions of all event listners
+    function allEventListners() {
+      // toggler icon click event
+      navToggler.addEventListener('click', togglerClick);
+      // nav links click event
+      navLinks.forEach( elem => elem.addEventListener('click', navLinkClick));
+    }
+    
+    // togglerClick function
+    function togglerClick() {
+      navToggler.classList.toggle('toggler-open');
+      navMenu.classList.toggle('open');
+    }
+    
+    // navLinkClick function
+    function navLinkClick() {
+      if(navMenu.classList.contains('open')) {
+      navToggler.click();
+      }
+    }
+    </script>
+
+
+
+
+{% block body %}
+
+{% endblock body %}
+
+<div class="page-wrapper" >
+    <footer class="footer" >
+      <div class="container-footer">
+        <div class="row-footer">
+          <div class="footer-col-1">
+            <h4>Contact</h4>
+            <ul>
+              <li><a href="#"><i class="fa fa-volume-control-phone" style="font-size:12px;color:white"></i><b style="margin-left:10px;">8777355154</b></a></li>
+              <li><a href="#"> <i class="fa-solid fa-house" style="font-size:12px;color:white"></i><b style="margin-left:10px;">128/A , Satyen Roy Road , Kol - 700034</b></a></li>
+              <li><a href="#"><i class="fa-solid fa-envelope" style="font-size:12px;color:white"></i><b style="margin-left:10px; font-size: 13px;">indradipchakraborty10@gmail.com</b></a></li>
+              <li><a href="#"><i class="fa-solid fa-location-dot" style="font-size:12px;color:white"></i><b style="margin-left:10px;">Kolkata ,West-bengal ,India</b></a></li>
+       
+            </ul>
+          </div>
+    
+          <div class="footer-col">
+            <h4>company</h4>
+            <ul>
+              <li><a href="">Explore Me</a></li>
+              <li><a href="">our services</a></li>
+              <li><a href="">privacy policy</a></li>
+              <li><a href="/contact">Contact Us</a></li>
+            </ul>
+          </div>
+    
+          <div class="footer-col">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="">Criminal</a></li>
+              <li><a href="">Domestic</a></li>
+              <li><a href="">Consultation</a></li>
+              <li><a href="">Other Query</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>follow us</h4>
+            <div class="social-links">
+              <a class="social-fb i" href="
+              https://www.facebook.com/indrabip.chakraborty?mibextid=ZbWKwL"><i class="fa-brands fa-facebook-f"></i></a>
+              <a class="social-tw i"  href="#"><i class="fab fa-twitter"style="color:sky-blue;font-size:13px;"></i></a>
+              <a class="social-insta i" href=""><i class="fab fa-instagram"></i></a>
+              <a class="social-linkd i" href=""><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+    
+      </div>
+    
+ 
+
+
+    <div class="new_footer_area bg_color">
+        <div class="new_footer_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+
+                    </div>
+           
+                    <div class="col-lg-3 col-md-6">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="footer_bg">
+                <div class="footer_bg_one"></div>
+                <div class="footer_bg_two"></div>
+            </div>
+        </div>
+     
+    </div>
+    </footer>
+    <div id="footer-copyright-info"  >
+      &copy; <a href="https://www.freelancer.com/u/fitnessbuddy2k22" style="text-decoration: underline; margin-top: 10px; font-size: 15px;">SAMPRIT-BIJAY Inc. 2023. All rights reserved.</a>
+    </div>
+    </div>  

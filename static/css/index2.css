@@ -1,0 +1,644 @@
+/* <style type="text/css"> */
+@media only screen and (max-width:1024px) {
+    .fusion-title.fusion-title-1 {
+        margin-top: 8px !important;
+        margin-right: !important;
+        margin-bottom: 0px !important;
+        margin-left: !important;
+    }
+}
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width:640px) {
+    .fusion-title.fusion-title-1 {
+        margin-top: 8px !important;
+        margin-right: 0px !important;
+        margin-bottom: 0px !important;
+        margin-left: 0px !important;
+    }
+}
+
+/* </style> */
+
+/* <style type="text/css"> */
+.fusion-body .fusion-builder-nested-column-3 {
+    width: 100% !important;
+    margin-top: 14px;
+    margin-bottom: 60px;
+}
+
+
+.in-bt{
+    margin-right:30px;
+       width: 150px;
+   border-width: 2px;
+      background: #c22127;
+   color: #ffffff;
+  transition: 0.3s;
+cursor: pointer;
+margin-top: 15px;
+padding: 10px; 
+ font-size: 1.1em;
+font-weight: 500;
+}
+
+.fusion-builder-nested-column-3>.fusion-column-wrapper {
+    padding-top: 0px !important;
+    padding-right: 0px !important;
+    margin-right: 25px;
+    padding-bottom: 0px !important;
+    padding-left: 0px !important;
+    margin-left: 25px;
+}
+
+@media only screen and (max-width:1024px) {
+    .fusion-body .fusion-builder-nested-column-3 {
+        width: 100% !important;
+        order: 0;
+        margin-top: 0;
+    }
+
+    .fusion-builder-nested-column-3>.fusion-column-wrapper {
+        margin-right: 25px;
+        margin-left: 25px;
+    }
+    .home-button-1{
+        display:inline-flex;
+       justify-content: center;
+       margin-left: 30px;
+
+       
+       }
+.fusion-button-text{
+    display: flex;
+    justify-content: center;
+}
+    }
+
+
+@media(max-width:445px){
+    .in-bt{
+        margin-right:30px;
+           width: 150px;
+       border-width: 2px;
+          background: #c22127;
+       color: #ffffff;
+      transition: 0.3s;
+    cursor: pointer;
+    margin-top: 15px;
+    padding: 10px; 
+     font-size: 1em;
+    font-weight: 500;
+    zoom: 90%;
+    }
+}
+
+@media(max-width:345px){
+    .in-bt{
+        margin-right:30px;
+           width: 150px;
+       border-width: 2px;
+          background: #c22127;
+       color: #ffffff;
+      transition: 0.3s;
+    cursor: pointer;
+    margin-top: 15px;
+    padding: 10px; 
+     font-size: 0.9em;
+    font-weight: 500;
+    zoom: 80%;
+    }
+}
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width:640px) {
+    .fusion-body .fusion-builder-nested-column-3 {
+        width: 100% !important;
+        order: 0;
+        margin-top: 0;
+    }
+
+    .fusion-builder-nested-column-3>.fusion-column-wrapper {
+        margin-right: 25px;
+        margin-left: 25px;
+    
+}
+}
+/* </style> */
+/* <style type="text/css"> */
+.fusion-body .fusion-builder-column-8 {
+    width: 60% !important;
+    margin-top: -320px;
+    margin-bottom: -120px;
+}
+
+.fusion-builder-column-8>.fusion-column-wrapper {
+    padding-top: 0px !important;
+    padding-right: 0px !important;
+    margin-right: 25px;
+    padding-bottom: 0px !important;
+    padding-left: 0px !important;
+    margin-left: 25px;
+}
+
+@media only screen and (max-width:1024px) {
+    .fusion-body .fusion-builder-column-8 {
+        width: 100% !important;
+        order: 1;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        /* padding-top: 20px; */
+    }
+
+    .fusion-builder-column-8>.fusion-column-wrapper {
+        margin-right: 25px;
+        margin-left: 25px;
+ 
+    }
+
+
+    .indx-p{
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+
+@media only screen and (max-width:640px) {
+    .fusion-body .fusion-builder-column-8 {
+        width: 100% !important;
+        order: 1;
+    }
+
+    .fusion-builder-column-8>.fusion-column-wrapper {
+        margin-right: 14px;
+        margin-left: 14px;
+    }
+}
+/* </style> */
+
+/* <style type="text/css"> */
+.fusion-body .fusion-builder-column-9 {
+    width: 33.3333333333% !important;
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+
+.fusion-builder-column-9>.fusion-column-wrapper {
+    padding-top: 0px !important;
+    padding-right: 57px !important;
+    margin-right: 25px;
+    padding-bottom: 0px !important;
+    padding-left: 0px !important;
+    margin-left: 25px;
+}
+
+@media only screen and (max-width:1024px) {
+    .fusion-body .fusion-builder-column-9 {
+        width: 100% !important;
+        order: 0;
+        margin-bottom: 18px;
+    }
+
+    .fusion-builder-column-9>.fusion-column-wrapper {
+        padding-right: 0 !important;
+        margin-right: 25px;
+        margin-left: 25px;
+    }
+}
+
+@media only screen and (max-width:640px) {
+    .fusion-body .fusion-builder-column-9 {
+        width: 100% !important;
+        order: 0;
+    }
+
+    .fusion-builder-column-9>.fusion-column-wrapper {
+        padding-right: 0 !important;
+        margin-right: 25px;
+        margin-left: 25px;
+    }
+}
+/* </style> */
+/* <style type="text/css"> */
+.fusion-fullwidth.fusion-builder-row-3 {
+    z-index: 100 !important;
+}
+
+.fusion-body .fusion-flex-container.fusion-builder-row-3 {
+    padding-top: 372px;
+    margin-top: 0px;
+    padding-right: 30px;
+    padding-bottom: 155px;
+    margin-bottom: 0px;
+    padding-left: 30px;
+}
+
+@media only screen and (max-width:1024px) {
+    .fusion-body .fusion-flex-container.fusion-builder-row-3 {
+        padding-top: 24px;
+        padding-bottom:60px;
+    }
+}
+
+@media only screen and (max-width:640px) {
+    .fusion-body .fusion-flex-container.fusion-builder-row-3 {
+        padding-top: 24px;
+        padding-bottom: 10px;
+    }
+}
+/* </style> */
+
+/* <style type="text/css"> */
+.fusion-body .fusion-builder-column-10 {
+    width: 66.6666666667% !important;
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+
+.fusion-builder-column-10>.fusion-column-wrapper {
+    padding-top: 0px !important;
+    padding-right: 103px !important;
+    margin-right: 25px;
+    padding-bottom: 0px !important;
+    padding-left: 0px !important;
+    margin-left: 25px;
+}
+
+@media only screen and (max-width:1024px) {
+    .fusion-body .fusion-builder-column-10 {
+        width: 100% !important;
+        order: 0;
+        margin-bottom: -20px;
+    }
+
+    .fusion-builder-column-10>.fusion-column-wrapper {
+        padding-right: 0 !important;
+        margin-right: 25px;
+        margin-left: 25px;
+    }
+}
+
+@media only screen and (max-width:640px) {
+    .fusion-body .fusion-builder-column-10 {
+        width: 100% !important;
+        order: 0;
+        margin-bottom: -20px;
+    }
+
+    .fusion-builder-column-10>.fusion-column-wrapper {
+        padding-right: 10px !important;
+        margin-right: 25px;
+        padding-left: 10px !important;
+        margin-left: 25px;
+    }
+}
+/* </style> */
+
+/* <style type="text/css"> */
+@media only screen and (max-width:1024px) {
+    .fusion-title.fusion-title-3 {
+        margin-top: 10px !important;
+        margin-right: 0px !important;
+        margin-bottom: 10px !important;
+        margin-left: 0px !important;
+    }
+}
+
+@media only screen and (max-width:640px) {
+    .fusion-title.fusion-title-3 {
+        margin-top: 10px !important;
+        margin-right: 0px !important;
+        margin-bottom: 10px !important;
+        margin-left: 0px !important;
+    }
+}
+/* </style> */
+
+/* <style type="text/css"> */
+.fusion-body .fusion-builder-nested-column-4 {
+    width: 100% !important;
+    margin-top: 18px;
+    margin-bottom: 0px;
+}
+
+.fusion-builder-nested-column-4>.fusion-column-wrapper {
+    padding-top: 35px !important;
+    padding-right: 50px !important;
+    margin-right: 25px;
+    padding-bottom: 0 !important;
+    padding-left: 50px !important;
+    margin-left: 25px;
+}
+
+@media only screen and (max-width:1024px) {
+    .fusion-body .fusion-builder-nested-column-4 {
+        width: 100% !important;
+        order: 0;
+    }
+
+    .fusion-builder-nested-column-4>.fusion-column-wrapper {
+        padding-right: 30px !important;
+        margin-right: 25px;
+        padding-left: 30px !important;
+        margin-left: 25px;
+    }
+}
+
+@media only screen and (max-width:640px) {
+    .fusion-body .fusion-builder-nested-column-4 {
+        width: 100% !important;
+        order: 0;
+    }
+
+    .fusion-builder-nested-column-4>.fusion-column-wrapper {
+        padding-right: 30px !important;
+        margin-right: 25px;
+        padding-left: 30px !important;
+        margin-left: 25px;
+    }
+}
+/* </style> */
+
+/* <style type="text/css"> */
+.fusion-body .fusion-builder-column-11 {
+    width: 33.3333333333% !important;
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+
+.fusion-builder-column-11>.fusion-column-wrapper {
+    padding-top: 0px !important;
+    padding-right: 25px !important;
+    margin-right: 0;
+    padding-bottom: 0px !important;
+    padding-left: 15px !important;
+    margin-left: 0;
+}
+
+@media only screen and (max-width:1024px) {
+    .fusion-body .fusion-builder-column-11 {
+        width: 100% !important;
+        order: 0;
+        margin-top: 40px;
+    }
+
+    .fusion-builder-column-11>.fusion-column-wrapper {
+        padding-right: 25px !important;
+        margin-right: 0;
+        padding-left: 25px !important;
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width:640px) {
+    .fusion-body .fusion-builder-column-11 {
+        width: 100% !important;
+        order: 0;
+        margin-top: 10px;
+    }
+
+    .fusion-builder-column-11>.fusion-column-wrapper {
+        padding-right: 35px !important;
+        margin-right: 0;
+        padding-left: 35px !important;
+        margin-left: 0;
+    }
+}
+/* </style> */
+
+
+
+
+
+
+/* <style> */
+.in-bt{
+      background-color: #960d12;
+      /* padding: 5px; */
+ padding-top:10px;
+ padding-bottom:10px;
+ 
+  }
+  .in-bt-1{
+      background-color:transparent;
+  }
+  .in-bt:hover{
+      background-color:#c22127;
+  }
+  .in-bt-1:hover{
+      background-color:#c22127;
+  }
+/* </style> */
+
+/* <style type="text/css"> */
+                                        .modal-1 .modal-header,
+                                        .modal-1 .modal-footer {
+                                            border-color: #e2e2e2;
+                                        }
+
+                                        .modal-1 .close {
+                                            color: #ffffff;
+                                            opacity: 0.35
+                                        }
+                                    /* </style> */
+
+                                    /* <style type="text/css"> */
+                                    @media only screen and (max-width:1024px) {
+                                        .fusion-title.fusion-title-2 {
+                                            margin-top: !important;
+                                            margin-right: !important;
+                                            margin-bottom: 50px !important;
+                                            margin-left: !important;
+                                        }
+
+                                    
+                                    }
+
+                                    @media only screen and (max-width:640px) {
+                                        .fusion-title.fusion-title-2 {
+                                            margin-top: 10px !important;
+                                            margin-right: 0px !important;
+                                            margin-bottom: 50px !important;
+                                            margin-left: 0px !important;
+                                        }
+                                    }
+                                /* </style> */
+
+                                
+                                /* <style> */
+                                .fusion-button.button-4 {
+                                    border-radius: 0px 0px 0px 0px;
+                                }
+                            /* </style> */
+
+                            /* <style> */
+                            .extra-index{
+                                margin-top: 80px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                          
+                          
+                            }
+                        /* </style> */
+
+                        /* <style> */
+                        .case-history{
+                            margin-top: 80px;
+                            background-color: #000000;
+                            color: #fff;
+                            padding: 30px;
+
+                        }
+                        .case-history h2 {
+                            color: #fff;
+
+                        }
+                        .client-img{
+                           height: 200px;
+                           width: 200px;
+                           /* padding-top: 50px; */
+                           border-radius: 50%;
+                           margin-bottom: 30px;
+                           /* margin-left: 60px; */
+                        }
+                    /* </style> */
+
+
+
+                    .lient-img-div{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    /* <style type="text/css"> */
+
+                    input::placeholder {
+                                color:#c22127; /* Change this to the desired color */
+                    
+                            }
+                         
+                                                            .fusion-body .fusion-flex-container.fusion-builder-row-4 {
+                                                                padding-top: 90px;
+                                                                margin-top: 0px;
+                                                                padding-right: 30px;
+                                                                padding-bottom: 20px;
+                                                                margin-bottom: 0px;
+                                                                padding-left: 30px;
+                                                            }
+                    
+                                                            @media only screen and (max-width:640px) {
+                                                                .fusion-body .fusion-flex-container.fusion-builder-row-4 {
+                                                                    padding-top: 30px;
+                                                                    padding-right: 10px;
+                                                                    padding-bottom: 30px;
+                                                                    padding-left: 10px;
+                                                                }
+                                                            }
+                                                        /* </style> */
+
+
+                                                        /* <style type="text/css"> */
+                                                        @media only screen and (max-width:1024px) {
+                                                            .fusion-title.fusion-title-4 {
+                                                                margin-top: 10px !important;
+                                                                margin-right: 0px !important;
+                                                                margin-bottom: 72px !important;
+                                                                margin-left: 0px !important;
+                                                            }
+                                                        }
+    
+                                                        @media only screen and (max-width:640px) {
+                                                            .fusion-title.fusion-title-4 {
+                                                                margin-top: 10px !important;
+                                                                margin-right: 0px !important;
+                                                                margin-bottom: 10px !important;
+                                                                margin-left: 0px !important;
+                                                            }
+                                                        }
+                                                    /* </style> */
+
+
+/* @media(max-width:390px){
+
+.home-400px{
+ zoom: 95%;
+
+}
+
+
+} */
+
+
+
+.whatsapp-ico{
+
+
+    margin-left: 0;
+    padding-left: 0;
+    margin-right:20px ;
+    margin-left: -10px;
+    fill: white;
+    /* size: 30px; */
+    width: 40px;
+    height: 40px;
+    padding: 3px;
+    background-color: #4dc247;
+    border-radius: 50%;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+
+
+}
+
+
+.sidebar-icon{
+    margin-right:20px ;
+    margin-left: -10px;
+}
+
+.email-ico{
+    height: 40px;
+    width: 40px;
+    /* background-color: #4dc247;
+    color: #4dc247; */
+}
+
+
+
+@media(max-width:470px){
+    .client-img{
+        height: 150px;
+        width: 150px;
+    }
+}
+
+
+@media(max-width:360px){
+
+/* .post-content p {
+    padding-right: 20px;
+} */
+.home-400px h2 {
+   zoom: 88%;
+}
+.home-400px  {
+    zoom: 100%;
+ }
+
+
+    }

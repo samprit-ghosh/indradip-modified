@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+
+
+{% extends 'layout.html' %}
+{% block title %} {{title}} {% endblock title %}
+{% block body %}
+
+<body>
+
+	<section class="contact">
+  
+		<div class="content">
+			<h1 class="contact-h2" style="margin:0 ;">Contact Us</h1>
+			<p class="contact-p" style="margin-top:0 ;padding-top: 0;">Open communication with the lawyer is essential for building trust and ensuring a strategic and informed approach to the defense.</p>
+		</div>
+	
+		<div class="container">
+			<div class="contactInfo" >
+				<div class="box">
+					<a href="https://maps.app.goo.gl/PDKgrSdXiFc8gYMV6"><div class="icon">
+						<ion-icon name="location-outline"></ion-icon></div></a>
+					<div class="text">
+						<p class="contact-h3">Address</p>
+						<a href="https://maps.app.goo.gl/PDKgrSdXiFc8gYMV6"  style="color: white;"><p class="contact-p">128/A ,<br>Satyen Roy Rd , Behala, Kolkata, West Bengal
+							<br>700034</p>
+							</a>
+					</div>
+				</div>
+				
+				<div class="box">
+					<div class="icon"><ion-icon name="call-outline"></ion-icon></div>
+					<div class="text">
+						<p class="contact-h3">Phone</p>
+					<a href="tel:+8777355154" style="color: white;">
+							<p class="contact-p">8777355154</p>
+							</a>
+					</div>
+				</div>
+				<div class="box">
+			<a href="mailto:indradipchakraborty10@gmail.com">		<div class="icon"><ion-icon name="mail-outline"></ion-icon></div></a>
+					<div class="text">
+						<p class="contact-h3">Email</p>
+						<a href="mailto:indradipchakraborty10@gmail.com" style="color: white;">	<p class="contact-p"> indradipchakraborty10@gmail.com</p></a>
+					</div>
+					
+				</div>
+				<!-- <h2 class="txt">Connect with us</h2> -->
+				<ul class="sci">
+					<li class="li"><a class="a" href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+					<li class="li"><a class="a" href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+					<li class="li"><a class="a" href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+					<li class="li"><a class="a" href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+				</ul>
+			</div>
+
+			<div class="contactForm-contact" style="margin:0;">
+				<form action="/contact" method="post">
+					<p style="color: black; font-size: 30px;font-weight: 600;" class="contact-h1">Send Message</p>
+					<div class="inputBox">
+						<input type="text" name="fullname" required="required">
+						<span>Full Name</span>
+					</div>
+					<div class="inputBox">
+						<input type="text" name="email" required="required">
+						<span>Email</span>
+					</div>
+					<div class="inputBox">
+						<input type="text" name="message" required="required"/>
+						<span>Type your Message...</span>
+					</div>
+					<div class="inputBox">
+						<input type="submit" value="Send">
+					</div>
+				</form>
+			</div>
+		</div>
+		<br>
+		<br>
+		<br>
+	</section>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	
+</body>
+
+{% endblock body %}
+
+
+</html>

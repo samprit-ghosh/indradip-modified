@@ -1,0 +1,60 @@
+
+          
+
+          
+          <!-- site-navbar start -->
+            <div class="navbar-area">
+              <div class="container-nav">
+                <nav class="site-navbar">
+                <!-- site logo -->
+                <a href="/" class="" style="text-decoration: none;"><p class="site-logo">Indradip</p></a>
+            
+                <!-- site menu/nav -->
+                <ul>
+                  <li><a href="#">home</a></li>
+                  <li><a href="#">about</a></li>
+                  <li><a href="#">service</a></li>
+                  <li><a href="#">contact</a></li>
+     
+                </ul>
+            
+                <!-- nav-toggler for mobile version only -->
+                <button class="nav-toggler">
+                  <span></span>
+                </button>
+                </nav>
+              </div>
+              </div><!-- navbar-area end -->
+            
+          
+            <script>
+              // define all UI variable
+            const navToggler = document.querySelector('.nav-toggler');
+            const navMenu = document.querySelector('.site-navbar ul');
+            const navLinks = document.querySelectorAll('.site-navbar a');
+            
+            // load all event listners
+            allEventListners();
+            
+            // functions of all event listners
+            function allEventListners() {
+              // toggler icon click event
+              navToggler.addEventListener('click', togglerClick);
+              // nav links click event
+              navLinks.forEach( elem => elem.addEventListener('click', navLinkClick));
+            }
+            
+            // togglerClick function
+            function togglerClick() {
+              navToggler.classList.toggle('toggler-open');
+              navMenu.classList.toggle('open');
+            }
+            
+            // navLinkClick function
+            function navLinkClick() {
+              if(navMenu.classList.contains('open')) {
+              navToggler.click();
+              }
+            }
+            </script>
+      

@@ -1,0 +1,261 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap'); */
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+.contact{
+    background: rgba(0, 0, 0, 0.65);
+    background-image: url("../back-image/contact.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+	background-blend-mode:darken;
+    
+}
+.contact 
+{
+	position: relative;
+	min-height: 100vh;
+	padding: 50px 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	/* background: #ff0000; */
+}
+.contact .content 
+{
+	max-width: 800px;
+	text-align: center;
+   
+}
+.contact .content .contact-h2 
+{
+	font-size: 3em;
+	color: #fff;
+	font-weight: 500;
+}
+.contact .content .contact-p
+{
+	color: #fff;
+	font-size: 1.1em;
+	font-weight: 300;
+}
+.container 
+{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 50px;
+	margin-top: 30px;
+}
+.container .contactInfo 
+{
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+}
+.container .contactInfo .box 
+{
+	position: relative;
+	padding: 30px 0;
+	display: flex;
+	cursor: pointer;
+
+}
+.container .contactInfo .box .icon 
+{
+	min-width: 60px;
+	height: 60px;
+	
+    background:  #c22127;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.75em;
+	transition: 0.5s;
+    box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.9);
+    border-radius: 50%;
+
+}
+.container .contactInfo .box:hover .icon 
+{
+    background: #fff;
+    color: #c22127;
+}
+.container .contactInfo .box .text 
+{
+	display: flex;
+	flex-direction: column;
+	margin-left: 20px;
+	font-size: 1.1em;
+	color: #fff;
+	font-weight: 300;
+}
+.container .contactInfo .box .text .contact-h3
+{
+	font-weight: 600;
+	color:  #c22127;
+}
+.container .contactInfo .txt
+{
+	color: #fff;
+	margin-top: 50px;
+	font-weight: 500;
+	padding-left: 10px;
+	border-left: 50px solid  #c22127;
+	line-height: 1em;
+}
+.sci 
+{
+	position: relative;
+	display: flex;
+	gap: 30px;
+	margin: 20px 0;
+}
+.sci .li 
+{
+	list-style: none;
+}
+.sci .li .a 
+{
+	color: #fff;
+	font-size: 2em;
+	transition: 0.5s;
+}
+.sci .li a:hover 
+{
+	color:  #c22127;
+}
+
+
+.container .contactForm-contact
+{
+	position: relative;
+	width: 40%;
+	background: #fff;
+	min-height: 100px;
+	padding: 60px;
+    box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.5);
+} 
+.container .contactForm-contact .contact-h2 
+{
+	font-size: 2.2em;
+	color: #333;
+	font-weight: 500;
+}
+.container .contactForm-contact .inputBox 
+{
+	position: relative;
+	width: 100%;
+	margin-top: 20px;
+}
+.container .contactForm-contact .inputBox input, 
+.container .contactForm-contact .inputBox textarea 
+{
+	width: 100%;
+	padding: 5px 0;
+	font-size: 1.1em;
+	margin: 10px 0;
+	border: none;
+	border-bottom: 2px solid #333;
+	outline: none;
+	resize: none;
+}
+.container .contactForm-contact .inputBox span 
+{
+	position: absolute;
+	left: 0;
+	pointer-events: none;
+	padding: 5px 0;
+	margin: 10px 0;
+	font-size: 1.1em;
+	color: #666;
+	transition: 0.5s;
+}
+.container .contactForm-contact .inputBox input:focus ~ span, 
+.container .contactForm-contact .inputBox textarea:focus ~ span,
+.container .contactForm-contact .inputBox input:valid ~ span, 
+.container .contactForm-contact .inputBox textarea:valid ~ span 
+{
+	color:  #c22127;
+	font-size: 0.9em;
+	transform: translateY(-20px);
+}
+.container .contactForm-contact .inputBox input[type="submit"]
+{
+	width: 100px;
+	background:  #c22127;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	padding: 10px;
+	font-size: 1.1em;
+	font-weight: 500;
+}
+
+/* lets make it responsive */
+@media (max-width: 991px)
+{
+	.contact
+	{
+		padding: 50px;
+	}
+	.container
+	{
+		flex-direction: column;
+	}
+	.container .contactInfo,
+	.container .contactForm-contact
+	{
+		width: 100%;
+	}
+	.container .contactForm-contact
+	{
+		padding: 50px 30px;
+	}
+}
+
+@media (max-width: 550px)
+{
+	.contact
+	{
+		padding: 50px;
+		zoom:80%;
+	}
+
+
+	.container .contactForm-contact
+	{
+		padding: 50px 30px;
+	}
+}
+
+
+@media(max-width:370px){
+
+ .icon{
+	zoom: 70%;
+ }
+
+}
+
+
+@media(max-width:335px){
+
+	.contact-h2{
+zoom:85%;
+
+	}
+
+	.contact-p{
+		zoom: 79%;
+	}
+   }
+

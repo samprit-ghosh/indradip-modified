@@ -1,0 +1,86 @@
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+{% extends 'layout.html' %}
+{% block title %} Register {% endblock title %}
+{% block body %}
+
+<body style ="background-image: url(../static/back-image/home.jpg);
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+background-color: rgba(0, 0, 0, 0.8);
+background-blend-mode: darken;">
+  
+<br>
+
+
+
+<div class="login-form">
+<div class="wrapper-login">
+    <form action="{{ url_for('register') }}" class="form-login-inner" method="post" >
+      <p style="  font-size: 2.5rem;
+      margin-bottom: 20px; font-weight: 600;
+      color: #000000">Register</p>
+
+<div class="input-field-login">
+    <input type="text" autocomplete="false" name="name" placeholder="Enter your name" style="border-width: 0; padding: 0;" />
+    <i
+      class="fa-regular fas fa-user fa-lg"
+      style="color: #666"
+    ></i>
+  </div>
+      <div class="input-field-login">
+        <input type="mail" autocomplete="false"  name="email" id="email-login" placeholder="Enter your email" />
+        <i
+          class="fa-regular fa-envelope fa-lg emailicon"
+          style="color: #666"
+        ></i>
+      </div>
+      <div class="input-field-login">
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter your password" name="password"
+        />
+        <i class="fa-regular fa-eye-slash passicon" style="color: #666"></i>
+        <span id="errormsg"
+          ><i
+            class="fa-solid fa-circle-exclamation"
+            style="color: #eb0a0a; position: static"
+          >
+          </i>
+          Min 7 characters</span
+        >
+      </div>
+
+      <br>
+      <button type="submit" class="login-button">Sign Up</button> 
+      <a href="{{ url_for('login_google') }}" class="login-button-google" style="text-decoration: none;color: white;">
+        
+        
+         <i class="fab fa-google" style="padding-right: 15px;"></i>
+         
+         
+         Log In with Google</a>
+      <div class="register">
+        <p>Allready have an account? <a href="/login">Login</a></p>
+      </div>
+    </form>
+  </div>
+  </div>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/login.js') }}"></script>
+
+
+
+<br>
+</body>
+
+{% endblock body %}
+
+</html> -->

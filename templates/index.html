@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html class="avada-html-layout-wide avada-html-header-position-top avada-is-100-percent-template" lang="en-CA">
+
+<head>
+ 
+    <script>if (navigator.userAgent.match(/MSIE|Internet Explorer/i) || navigator.userAgent.match(/Trident\/7\..*?rv:11/i)) { var href = document.location.href; if (!href.match(/[?&]nowprocket/)) { if (href.indexOf("?") == -1) { if (href.indexOf("#") == -1) { document.location.href = href + "?nowprocket=1" } else { document.location.href = href.replace("#", "?nowprocket=1#") } } else { if (href.indexOf("#") == -1) { document.location.href = href + "&nowprocket=1" } else { document.location.href = href.replace("#", "&nowprocket=1#") } } } }</script>
+    <script>class RocketLazyLoadScripts { constructor() { this.v = "1.2.3", this.triggerEvents = ["keydown", "mousedown", "mousemove", "touchmove", "touchstart", "touchend", "wheel"], this.userEventHandler = this._triggerListener.bind(this), this.touchStartHandler = this._onTouchStart.bind(this), this.touchMoveHandler = this._onTouchMove.bind(this), this.touchEndHandler = this._onTouchEnd.bind(this), this.clickHandler = this._onClick.bind(this), this.interceptedClicks = [], window.addEventListener("pageshow", t => { this.persisted = t.persisted }), window.addEventListener("DOMContentLoaded", () => { this._preconnect3rdParties() }), this.delayedScripts = { normal: [], async: [], defer: [] }, this.trash = [], this.allJQueries = [] } _addUserInteractionListener(t) { if (document.hidden) { t._triggerListener(); return } this.triggerEvents.forEach(e => window.addEventListener(e, t.userEventHandler, { passive: !0 })), window.addEventListener("touchstart", t.touchStartHandler, { passive: !0 }), window.addEventListener("mousedown", t.touchStartHandler), document.addEventListener("visibilitychange", t.userEventHandler) } _removeUserInteractionListener() { this.triggerEvents.forEach(t => window.removeEventListener(t, this.userEventHandler, { passive: !0 })), document.removeEventListener("visibilitychange", this.userEventHandler) } _onTouchStart(t) { "HTML" !== t.target.tagName && (window.addEventListener("touchend", this.touchEndHandler), window.addEventListener("mouseup", this.touchEndHandler), window.addEventListener("touchmove", this.touchMoveHandler, { passive: !0 }), window.addEventListener("mousemove", this.touchMoveHandler), t.target.addEventListener("click", this.clickHandler), this._renameDOMAttribute(t.target, "onclick", "rocket-onclick"), this._pendingClickStarted()) } _onTouchMove(t) { window.removeEventListener("touchend", this.touchEndHandler), window.removeEventListener("mouseup", this.touchEndHandler), window.removeEventListener("touchmove", this.touchMoveHandler, { passive: !0 }), window.removeEventListener("mousemove", this.touchMoveHandler), t.target.removeEventListener("click", this.clickHandler), this._renameDOMAttribute(t.target, "rocket-onclick", "onclick"), this._pendingClickFinished() } _onTouchEnd(t) { window.removeEventListener("touchend", this.touchEndHandler), window.removeEventListener("mouseup", this.touchEndHandler), window.removeEventListener("touchmove", this.touchMoveHandler, { passive: !0 }), window.removeEventListener("mousemove", this.touchMoveHandler) } _onClick(t) { t.target.removeEventListener("click", this.clickHandler), this._renameDOMAttribute(t.target, "rocket-onclick", "onclick"), this.interceptedClicks.push(t), t.preventDefault(), t.stopPropagation(), t.stopImmediatePropagation(), this._pendingClickFinished() } _replayClicks() { window.removeEventListener("touchstart", this.touchStartHandler, { passive: !0 }), window.removeEventListener("mousedown", this.touchStartHandler), this.interceptedClicks.forEach(t => { t.target.dispatchEvent(new MouseEvent("click", { view: t.view, bubbles: !0, cancelable: !0 })) }) } _waitForPendingClicks() { return new Promise(t => { this._isClickPending ? this._pendingClickFinished = t : t() }) } _pendingClickStarted() { this._isClickPending = !0 } _pendingClickFinished() { this._isClickPending = !1 } _renameDOMAttribute(t, e, r) { t.hasAttribute && t.hasAttribute(e) && (event.target.setAttribute(r, event.target.getAttribute(e)), event.target.removeAttribute(e)) } _triggerListener() { this._removeUserInteractionListener(this), "loading" === document.readyState ? document.addEventListener("DOMContentLoaded", this._loadEverythingNow.bind(this)) : this._loadEverythingNow() } _preconnect3rdParties() { let t = []; document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(e => { if (e.hasAttribute("src")) { let r = new URL(e.src).origin; r !== location.origin && t.push({ src: r, crossOrigin: e.crossOrigin || "module" === e.getAttribute("data-rocket-type") }) } }), t = [...new Map(t.map(t => [JSON.stringify(t), t])).values()], this._batchInjectResourceHints(t, "preconnect") } async _loadEverythingNow() { this.lastBreath = Date.now(), this._delayEventListeners(this), this._delayJQueryReady(this), this._handleDocumentWrite(), this._registerAllDelayedScripts(), this._preloadAllScripts(), await this._loadScriptsFromList(this.delayedScripts.normal), await this._loadScriptsFromList(this.delayedScripts.defer), await this._loadScriptsFromList(this.delayedScripts.async); try { await this._triggerDOMContentLoaded(), await this._triggerWindowLoad() } catch (t) { console.error(t) } window.dispatchEvent(new Event("rocket-allScriptsLoaded")), this._waitForPendingClicks().then(() => { this._replayClicks() }), this._emptyTrash() } _registerAllDelayedScripts() { document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(t => { t.hasAttribute("data-rocket-src") ? t.hasAttribute("async") && !1 !== t.async ? this.delayedScripts.async.push(t) : t.hasAttribute("defer") && !1 !== t.defer || "module" === t.getAttribute("data-rocket-type") ? this.delayedScripts.defer.push(t) : this.delayedScripts.normal.push(t) : this.delayedScripts.normal.push(t) }) } async _transformScript(t) { return new Promise((await this._littleBreath(), navigator.userAgent.indexOf("Firefox/") > 0 || "" === navigator.vendor) ? e => { let r = document.createElement("script");[...t.attributes].forEach(t => { let e = t.nodeName; "type" !== e && ("data-rocket-type" === e && (e = "type"), "data-rocket-src" === e && (e = "src"), r.setAttribute(e, t.nodeValue)) }), t.text && (r.text = t.text), r.hasAttribute("src") ? (r.addEventListener("load", e), r.addEventListener("error", e)) : (r.text = t.text, e()); try { t.parentNode.replaceChild(r, t) } catch (i) { e() } } : async e => { function r() { t.setAttribute("data-rocket-status", "failed"), e() } try { let i = t.getAttribute("data-rocket-type"), n = t.getAttribute("data-rocket-src"); t.text, i ? (t.type = i, t.removeAttribute("data-rocket-type")) : t.removeAttribute("type"), t.addEventListener("load", function r() { t.setAttribute("data-rocket-status", "executed"), e() }), t.addEventListener("error", r), n ? (t.removeAttribute("data-rocket-src"), t.src = n) : t.src = "data:text/javascript;base64," + window.btoa(unescape(encodeURIComponent(t.text))) } catch (s) { r() } }) } async _loadScriptsFromList(t) { let e = t.shift(); return e && e.isConnected ? (await this._transformScript(e), this._loadScriptsFromList(t)) : Promise.resolve() } _preloadAllScripts() { this._batchInjectResourceHints([...this.delayedScripts.normal, ...this.delayedScripts.defer, ...this.delayedScripts.async], "preload") } _batchInjectResourceHints(t, e) { var r = document.createDocumentFragment(); t.forEach(t => { let i = t.getAttribute && t.getAttribute("data-rocket-src") || t.src; if (i) { let n = document.createElement("link"); n.href = i, n.rel = e, "preconnect" !== e && (n.as = "script"), t.getAttribute && "module" === t.getAttribute("data-rocket-type") && (n.crossOrigin = !0), t.crossOrigin && (n.crossOrigin = t.crossOrigin), t.integrity && (n.integrity = t.integrity), r.appendChild(n), this.trash.push(n) } }), document.head.appendChild(r) } _delayEventListeners(t) { let e = {}; function r(t, r) { !function t(r) { !e[r] && (e[r] = { originalFunctions: { add: r.addEventListener, remove: r.removeEventListener }, eventsToRewrite: [] }, r.addEventListener = function () { arguments[0] = i(arguments[0]), e[r].originalFunctions.add.apply(r, arguments) }, r.removeEventListener = function () { arguments[0] = i(arguments[0]), e[r].originalFunctions.remove.apply(r, arguments) }); function i(t) { return e[r].eventsToRewrite.indexOf(t) >= 0 ? "rocket-" + t : t } }(t), e[t].eventsToRewrite.push(r) } function i(t, e) { let r = t[e]; Object.defineProperty(t, e, { get: () => r || function () { }, set(i) { t["rocket" + e] = r = i } }) } r(document, "DOMContentLoaded"), r(window, "DOMContentLoaded"), r(window, "load"), r(window, "pageshow"), r(document, "readystatechange"), i(document, "onreadystatechange"), i(window, "onload"), i(window, "onpageshow") } _delayJQueryReady(t) { let e; function r(r) { if (r && r.fn && !t.allJQueries.includes(r)) { r.fn.ready = r.fn.init.prototype.ready = function (e) { return t.domReadyFired ? e.bind(document)(r) : document.addEventListener("rocket-DOMContentLoaded", () => e.bind(document)(r)), r([]) }; let i = r.fn.on; r.fn.on = r.fn.init.prototype.on = function () { if (this[0] === window) { function t(t) { return t.split(" ").map(t => "load" === t || 0 === t.indexOf("load.") ? "rocket-jquery-load" : t).join(" ") } "string" == typeof arguments[0] || arguments[0] instanceof String ? arguments[0] = t(arguments[0]) : "object" == typeof arguments[0] && Object.keys(arguments[0]).forEach(e => { let r = arguments[0][e]; delete arguments[0][e], arguments[0][t(e)] = r }) } return i.apply(this, arguments), this }, t.allJQueries.push(r) } e = r } r(window.jQuery), Object.defineProperty(window, "jQuery", { get: () => e, set(t) { r(t) } }) } async _triggerDOMContentLoaded() { this.domReadyFired = !0, await this._littleBreath(), document.dispatchEvent(new Event("rocket-DOMContentLoaded")), await this._littleBreath(), window.dispatchEvent(new Event("rocket-DOMContentLoaded")), await this._littleBreath(), document.dispatchEvent(new Event("rocket-readystatechange")), await this._littleBreath(), document.rocketonreadystatechange && document.rocketonreadystatechange() } async _triggerWindowLoad() { await this._littleBreath(), window.dispatchEvent(new Event("rocket-load")), await this._littleBreath(), window.rocketonload && window.rocketonload(), await this._littleBreath(), this.allJQueries.forEach(t => t(window).trigger("rocket-jquery-load")), await this._littleBreath(); let t = new Event("rocket-pageshow"); t.persisted = this.persisted, window.dispatchEvent(t), await this._littleBreath(), window.rocketonpageshow && window.rocketonpageshow({ persisted: this.persisted }) } _handleDocumentWrite() { let t = new Map; document.write = document.writeln = function (e) { let r = document.currentScript; r || console.error("WPRocket unable to document.write this: " + e); let i = document.createRange(), n = r.parentElement, s = t.get(r); void 0 === s && (s = r.nextSibling, t.set(r, s)); let a = document.createDocumentFragment(); i.setStart(a, 0), a.appendChild(i.createContextualFragment(e)), n.insertBefore(a, s) } } async _littleBreath() { Date.now() - this.lastBreath > 45 && (await this._requestAnimFrame(), this.lastBreath = Date.now()) } async _requestAnimFrame() { return document.hidden ? new Promise(t => setTimeout(t)) : new Promise(t => requestAnimationFrame(t)) } _emptyTrash() { this.trash.forEach(t => t.remove()) } static run() { let t = new RocketLazyLoadScripts; t._addUserInteractionListener(t) } } RocketLazyLoadScripts.run();</script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script type="text/javascript">
+        var gform; gform || (document.addEventListener("gform_main_scripts_loaded", function () { gform.scriptsLoaded = !0 }), window.addEventListener("DOMContentLoaded", function () { gform.domLoaded = !0 }), gform = { domLoaded: !1, scriptsLoaded: !1, initializeOnLoaded: function (o) { gform.domLoaded && gform.scriptsLoaded ? o() : !gform.domLoaded && gform.scriptsLoaded ? window.addEventListener("DOMContentLoaded", o) : document.addEventListener("gform_main_scripts_loaded", o) }, hooks: { action: {}, filter: {} }, addAction: function (o, n, r, t) { gform.addHook("action", o, n, r, t) }, addFilter: function (o, n, r, t) { gform.addHook("filter", o, n, r, t) }, doAction: function (o) { gform.doHook("action", o, arguments) }, applyFilters: function (o) { return gform.doHook("filter", o, arguments) }, removeAction: function (o, n) { gform.removeHook("action", o, n) }, removeFilter: function (o, n, r) { gform.removeHook("filter", o, n, r) }, addHook: function (o, n, r, t, i) { null == gform.hooks[o][n] && (gform.hooks[o][n] = []); var e = gform.hooks[o][n]; null == i && (i = n + "_" + e.length), gform.hooks[o][n].push({ tag: i, callable: r, priority: t = null == t ? 10 : t }) }, doHook: function (n, o, r) { var t; if (r = Array.prototype.slice.call(r, 1), null != gform.hooks[n][o] && ((o = gform.hooks[n][o]).sort(function (o, n) { return o.priority - n.priority }), o.forEach(function (o) { "function" != typeof (t = o.callable) && (t = window[t]), "action" == n ? t.apply(null, r) : r[0] = t.apply(null, r) })), "filter" == n) return r[0] }, removeHook: function (o, n, t, i) { var r; null != gform.hooks[o][n] && (r = (r = gform.hooks[o][n]).filter(function (o, n, r) { return !!(null != i && i != o.tag || null != t && t != o.priority) }), gform.hooks[o][n] = r) } });
+    </script>
+
+
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="theme-color" content="#c22127">
+    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+    
+    <script data-cfasync="false" data-pagespeed-no-defer>
+        var gtm4wp_datalayer_name = "dataLayer";
+        var dataLayer = dataLayer || [];
+    </script>
+   
+    
+    
+    <meta name="description"
+        content="Criminal Defence Lawyer" />
+    <link rel="canonical" href="https://indradipchakraborty.com/login" />
+    
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="indradipchakraborty.com" />
+    <meta property="og:site_name" content="Strategic Criminal Defence Lawyers Indrajip" />
+    <meta property="og:description" content="" />
+
+   
+
+
+
+
+
+   
+    
+   
+
+    <script data-cfasync="false" data-pagespeed-no-defer>
+        var dataLayer_content = { "pagePostType": "frontpage", "pagePostType2": "single-page", "pagePostAuthor": "Michael Oykhman" };
+        dataLayer.push(dataLayer_content);
+    </script>
+    <script type="rocketlazyloadscript" data-cfasync="false">
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.'+'js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TMW6H2K');
+</script>
+
+   
+  
+   
+    <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+			var doc = document.documentElement;
+			doc.setAttribute( 'data-useragent', navigator.userAgent );
+		</script>
+
+
+    <meta name="geo.region" content="India" />
+    <meta name="geo.placename" content="West-bengal" />
+    <meta name="geo.position" content="Kolkata" />
+    <meta name="ICBM" content="8777355154 || indradipchakraborty10@gmail.com" />
+    <meta name="copyright" content="" />
+
+    <meta name="" 
+     content="
+    Facing criminal charges? Hire Indradip Chakraborty a seasoned criminal 
+    defense attorney dedicated to protecting your rights. With a proven track 
+    record, we provide expert legal representation for a wide range of criminal cases. 
+    Contact us for a confidential consultation." />
+   
+    <link rel="shortcut icon" href="../static/back-image/lawyer.jpg" type="image/x-icon">
+
+ 
+
+    
+    
+</head>
+
+{% extends 'layout.html' %}
+{% block title %} Home{% endblock title %}
+{% block body %}
+
+<body
+    class="home-400px page-template page-template-100-width page-template-100-width-php page page-id-31 fusion-image-hovers fusion-pagination-sizing fusion-button_type-flat fusion-button_span-no fusion-button_gradient-linear avada-image-rollover-circle-yes avada-image-rollover-yes avada-image-rollover-direction-left fusion-body ltr fusion-sticky-header no-tablet-sticky-header no-mobile-sticky-header no-mobile-slidingbar no-mobile-totop avada-has-rev-slider-styles fusion-disable-outline fusion-sub-menu-fade mobile-logo-pos-left layout-wide-mode avada-has-boxed-modal-shadow- layout-scroll-offset-full avada-has-zero-margin-offset-top fusion-top-header menu-text-align-center mobile-menu-design-classic fusion-show-pagination-text fusion-header-layout-v3 avada-responsive avada-footer-fx-none avada-menu-highlight-style-bar fusion-search-form-classic fusion-main-menu-search-overlay fusion-avatar-circle avada-dropdown-styles avada-blog-layout-large avada-blog-archive-layout-large avada-header-shadow-no avada-menu-icon-position-left avada-has-megamenu-shadow avada-has-mobile-menu-search avada-has-main-nav-search-icon avada-has-breadcrumb-mobile-hidden avada-has-titlebar-bar_and_content avada-header-border-color-full-transparent avada-has-pagination-width_height avada-flyout-menu-direction-fade avada-ec-views-v1">
+  
+
+
+
+
+
+
+    <div id="boxed-wrapper">
+        <div class="fusion-sides-frame"></div>
+        <div id="wrapper" class="fusion-wrapper">
+            <div id="home" style="position:relative;top:-1px;"></div>
+       
+    
+            <section class="fusion-page-title-bar fusion-tb-page-title-bar" >
+                <div class="fusion-fullwidth fullwidth-box fusion-builder-row-3 fusion-flex-container  nonhundred-percent-fullwidth non-hundred-percent-height-scrolling "
+                    style="background-color: rgba(0,0,0,0.64);
+                   background-image: url(../static/back-image/index.jpg);background-size: cover;
+                    background-position: center center;background-repeat: no-repeat;background-blend-mode: darken;border-width: 0px 0px 0px 0px;border-color:#e2e2e2;border-style:solid;">
+                 
+     
+                    <div class="fusion-builder-row fusion-row fusion-flex-align-items-center fusion-flex-align-content-center">
+                      
+                        <div
+                            class="fusion-layout-column fusion_builder_column fusion-builder-column-8 fusion_builder_column_3_5 3_5 fusion-flex-column">
+                            <div class="fusion-column-wrapper fusion-flex-justify-content-flex-start fusion-content-layout-column"
+                                style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;padding: 0px 0px 0px 0px;">
+                            
+                                <div class="fusion-text fusion-text-8 md-text-align-center sm-text-align-center fusion-text-no-margin"
+                                    style="font-size:min(24px, 3.5vw);letter-spacing:0.6px;color:#c22127;font-family:&quot;Lexend&quot;;font-weight:700;">
+                                    <p>STRATEGY. EXPERIENCE. RESULTS.</p>
+                                </div>
+                        <br>
+                        
+                                <div class="fusion-title title fusion-title-1 fusion-sep-none fusion-title-text fusion-title-size-one"
+                                    style="font-size:min(60px, 5vw);margin-top:0px;margin-right:0px;margin-bottom:-19px;margin-left:0px;">
+                                    <h1 class="title-heading-left md-text-align-center sm-text-align-center fusion-responsive-typography-calculated"
+                                        style="margin:0;font-size:1em;letter-spacing:1.1px;color:#ffffff;--fontSize:600;line-height:1.1;">
+                                        Indradip Chakraborty Criminal Lawyers</h1>
+                                </div>
+                                <div class="fusion-text fusion-text-9 md-text-align-center sm-text-align-center remove-br"
+                                    style="font-size:min(24px, 3.7vw);line-height:1.6;letter-spacing:-0.1px;color:#ffffff;">
+                                   <br/> <p class="indx-p">Sharing resources, experience and ideas<br />
+                                        from across India to serve you better.</p>
+                                </div>
+                                <div class="fusion-builder-row fusion-builder-row-inner fusion-row fusion-flex-align-items-center fusion-flex-align-content-center"
+                                    style="width:calc( 100% + 50px ) !important;max-width:calc( 100% + 50px ) !important;margin-left: calc(-50px / 2 );margin-right: calc(-50px / 2 );">
+                                    <div
+                                        class="fusion-layout-column fusion_builder_column_inner fusion-builder-nested-column-3 fusion_builder_column_inner_1_1 1_1 fusion-flex-column mobile-full-width-btn">
+                                        <div class="fusion-column-wrapper fusion-flex-justify-content-flex-start fusion-content-layout-row"
+                                            style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;padding: 0px 0px 0px 0px;">
+                                            <div>
+                                               <br>
+
+                                            </div>
+                                            <div class="home-button-1">
+                                                <style>
+                                                    .fusion-button.button-3 {
+                                                        border-radius: 0px 0px 0px 0px;
+                                                    }
+
+                                                  
+                                                </style>
+                                                <br>
+                                                <a
+                                                    class="in-bt"
+                                                 
+                                                    target="_self"
+                                                    
+                                                   
+                                                   
+                                                      
+                                                    {% if session.get('user') %}
+                                                        href="/home"
+                                                        {% else %}
+                                                        href="/login"
+                                                        {% endif %}
+                                                    ><span
+                                                        class="fusion-button-text">FREE ONLINE CONSULTATION</span></a>
+                                            </div>
+
+                                   
+                                        </div>
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                         
+                        </div>
+                        <div
+                            class="fusion-layout-column fusion_builder_column fusion-builder-column-9 fusion_builder_column_1_3 1_3 fusion-flex-column">
+                            <div class="fusion-column-wrapper fusion-flex-justify-content-flex-start fusion-content-layout-column"
+                                style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;padding: 0px 57px 0px 0px;">
+                                
+                               
+                                <div style="text-align:center;">
+                                   </div>
+                                    
+                           
+                                </div>
+                            </div>
+                         
+                        </div>
+                    </div>
+                 
+                </div>
+               
+            </section>
+            <main id="main" class="clearfix width-100">
+                <div class="fusion-row" style="max-width:100%;">
+                    <section id="content" style="width: 100%;">
+                        <div id="post-31" class="post-31 page type-page status-publish has-post-thumbnail hentry">
+
+                            <div class="post-content">
+                                <div class="fusion-fullwidth fullwidth-box fusion-builder-row-4 fusion-flex-container nonhundred-percent-fullwidth non-hundred-percent-height-scrolling"
+                                    style="background-color: rgba(255,255,255,0);background-position: center center;background-repeat: no-repeat;border-width: 0px 0px 0px 0px;border-color:#e2e2e2;border-style:solid;">
+                                    <div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start"
+                                        style="max-width:calc( 1440px + 50px );margin-left: calc(-50px / 2 );margin-right: calc(-50px / 2 );">
+                                        <div
+                                            class="fusion-layout-column fusion_builder_column fusion-builder-column-10 fusion_builder_column_2_3 2_3 fusion-flex-column">
+                                            <div class="fusion-column-wrapper fusion-flex-justify-content-flex-start fusion-content-layout-column"
+                                                style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;padding: 0px 103px 0px 0px;">
+                                              
+                                                <div class="fusion-title title fusion-title-2 fusion-sep-none fusion-title-text fusion-title-size-two"
+                                                    style="font-size:52px;margin-top:10px;margin-right:0px;margin-bottom:50px;margin-left:0px;">
+                                                    <h2 class="title-heading-left fusion-responsive-typography-calculated"
+                                                        style="margin:0;font-size:1em;--fontSize:52;line-height:1.2;">
+                                                        Criminal lawyer Indradip,defending your rights.</h2>
+                                                </div>
+                                                <div class="fusion-text fusion-text-10">
+                                                    <p> <br>
+                                                        
+                                       
+                                                        Being
+                                                        accused of a crime may be the most stressful event you will ever
+                                                        experience in your lifetime. If you are reading this, it is
+                                                        likely that you or a loved one have been arrested and charged by
+                                                        the police. Your reputation has been tarnished, your liberties
+                                                        have been restricted, and now you have to defend yourself in
+                                                        court. You’ve been through a lot, but unfortunately, this is
+                                                        just the beginning.</p>
+                                                    <p>Next, the government will use all of the resources at its
+                                                        disposal to prosecute you to the fullest extent of the law. With
+                                                        unlimited money, power, and resources at their disposal, they
+                                                        have the means to see this through.</p>
+                                                    <p>I understand that being merely accused of a crime can be
+                                                        extremely stigmatizing. But being found guilty can lead to its
+                                                        own host of significant ramifications.</p>
+                                                    <p><strong>Even if you are not sentenced to a jail term, a criminal
+                                                            conviction can have profound consequences on your future,
+                                                            such as:</strong></p>
+                                                    <ul style="margin-left: 30px; list-style:inside;">
+                                                        <li style="color: #c22127;">Loss of employment,</li>
+                                                        <li style="color: #c22127;">Loss of family and friends,</li>
+                                                        <li style="color: #c22127;">Loss of immigration status,</li>
+                                                        <li style="color: #c22127;">Loss of opportunity, and</li>
+                                                        <li style="color: #c22127;">Loss of personal self-worth.</li>
+                                                    </ul>
+                                                    <p>As hard as it may seem, remember that you are presumed innocent
+                                                        throughout this process and that you are doing the right thing
+                                                        by exploring your legal options.</p>
+                                                    <h2>A Strategic Approach</h2>
+                                                    <p>No two clients are alike. I understand that the circumstances in
+                                                        your case are unique and require a personalized approach to
+                                                        address any criminal charge you are facing.</p>
+                                                    <p>Our first step with any new client is to <strong>listen</strong>.
+                                                        Understanding the exact circumstances that led to you receiving
+                                                        a criminal charge is critical in being able to determine the
+                                                        strategy i believe will be most likely to result in the best
+                                                        possible outcome.I will also discuss your goals in resolving
+                                                        the criminal charge which may include avoiding a criminal
+                                                        record, avoiding jail time, and/or having a fine reduced.</p>
+                                                    <p>Once i have a comprehensive understanding of your situation, i
+                                                        will discuss the next steps and outline the strategy we believe
+                                                        would be in your best interest such as proceeding to trial,
+                                                        attempting to reach a resolution with the Crown, or pleading
+                                                        guilty to a lesser offence and sentence.</p>
+                                                    <p>Most importantly, no matter what avenue i take, it will be with
+                                                        your instruction and confidence that it is the right strategy
+                                                        for you.</p>
+                                               
+                                                    <p>Although self-representation is an option, and your legally
+                                                        protected right, there is a vast amount of information you will
+                                                        need to know prior to appearing for yourself in court.
+                                                        Furthermore, statistics indicate that self-represented litigants
+                                                        are significantly more likely to be found guilty than those with
+                                                        legal representation.</p>
+                                                    <p>I am confident not only in our ability to represent you but
+                                                        also in working with you to find a payment plan that suits your
+                                                        budget.</p>
+                                                    <h2 >Client-Centred Services</h2>
+                                                    <p>Defending your rights is not just about knowing the law. I
+                                                        believe that understanding your story is of the utmost
+                                                        importance as well. Every case is different, and every client
+                                                        has individualized needs. I will always take the time to meet
+                                                        with you to learn about your personal circumstances and
+                                                        priorities, so that we can represent you better.</p>
+                                                    <p>Our lawyers are passionate about criminal law and are fully
+                                                        invested in those we represent. No matter the situation, we
+                                                        never lose sight of our clients’ interests. Furthermore, with
+                                                        open lines of communication, you can count on us to keep you
+                                                        informed every step of the way.</p>
+                                                    
+                                                    <h2>Understanding Criminal Defence Proceedings</h2>
+                                                    <p>I understand that your first question when you are charged with
+                                                        a criminal offence is “what now?” and i am here to guide you through your concerns and
+                                                        ensure the process is as smooth as possible.</p>
+                                                    <p>Following your initial consultation, i will ensure all of your
+                                                        disclosure is provided. That means any evidence the Crown seeks
+                                                        to use in their case must be provided to us. Once we have had an
+                                                        opportunity to review, i will meet to discuss what we believe
+                                                        will be the best avenue to proceed and ensure your concerns are
+                                                        addressed. This may include proceeding to trial, attempting to
+                                                        reach a resolution with the Crown or pleading guilty to a lesser
+                                                        offence.</p>
+                                                    <p>Regardless, i will ensure you are fully informed every step of
+                                                        the way and understand all aspects of whatever avenue we proceed
+                                                        with.</p>
+                                                    <p>For a more extensive explanation of the criminal justice process,
+                                                        please visit our <a
+                                                            href="/">Court
+                                                            Process</a> web page.</p>
+                                                </div>
+                                            </div>
+                                         
+                                        </div>
+                                        <div
+                                            class="fusion-layout-column fusion_builder_column fusion-builder-column-11 fusion_builder_column_1_3 1_3 fusion-flex-column">
+                                            <div class="fusion-column-wrapper fusion-flex-justify-content-flex-start fusion-content-layout-column"
+                                                style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;padding: 0px 25px 0px 15px;">
+                                                <div class="fusion-builder-row fusion-builder-row-inner fusion-row fusion-flex-align-items-flex-start"
+                                                    style="width:calc( 100% + 50px ) !important;max-width:calc( 100% + 50px ) !important;margin-left: calc(-50px / 2 );margin-right: calc(-50px / 2 );">
+                                                    <div
+                                                        class="fusion-layout-column fusion_builder_column_inner fusion-builder-nested-column-4 fusion_builder_column_inner_1_1 1_1 fusion-flex-column sidebar">
+                                                        <div class="fusion-column-wrapper fusion-flex-justify-content-flex-start fusion-content-layout-column"
+                                                            style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;background-color:#000000;padding: 35px 50px 0px 50px;">
+                                                           
+                                                            <div class="fusion-title title fusion-title-3 fusion-sep-none fusion-title-text fusion-title-size-three"
+                                                                style="font-size:22px;margin-top:10px;margin-right:0px;margin-bottom:10px;margin-left:0px;">
+
+                                                                 
+                                                                <h3 class="title-heading-left fusion-responsive-typography-calculated"
+                                                                    style="margin:0;font-size:1em;letter-spacing:1.3px;color:#ffffff;--fontSize:22;line-height:1.3;">
+                                                                    Call Now Or Send A Message To Get Help.</h3>
+                                                            </div>
+                                                         
+                                                            <div>
+                                                            
+                                                                <a
+                                                                    class="fusion-button button-flat fusion-button-default-size button-default button-4 fusion-button-span-yes fusion-button-default-type full-width-btn"
+                                                                    target="_self" href="tel:"
+                                                                    style="margin-bottom:20px;"><span
+                                                                        class="fusion-button-text" style="	width:100%;
+                                                                        background:  #c22127;
+                                                                        color: #fff;
+                                                                        border: none;
+                                                                        cursor: pointer;
+                                                                        margin-top: 35px;
+                                                                        padding: 10px; 
+                                                                      
+                                                                        font-size: 1.1em;
+                                                                        display: flex;
+                                                                       justify-content: center;
+                                                                        font-weight: 500;">I am Available 24/7</span></a>
+                                                                        
+                                                                        <a
+                                                                    class="fusion-button button-flat fusion-button-default-size button-default button-4 fusion-button-span-yes fusion-button-default-type full-width-btn"
+                                                                    target="_self" href="https://wa.me/+918777355154"
+                                                                    style="margin-bottom:20px;"><span
+                                                                        class="fusion-button-text" style="	width:100%;
+                                                                        background:  #c22127;
+                                                                        color: #fff;
+                                                                        border: none;
+                                                                        cursor: pointer;
+                                                                        margin-top: 35px;
+                                                                        padding: 10px; 
+                                                                      
+                                                                        font-size: 1.1em;
+                                                                        display: flex;
+                                                                       justify-content: center;
+                                                                        font-weight: 500;">
+                                                               <svg viewBox="0 0 32 32" class="whatsapp-ico">
+                                                                <path d=" M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.043-.53-.043-.302 0-.53.115-.746.315-.688.645-1.032 1.318-1.06 2.264v.114c-.015.99.472 1.977 1.017 2.78 1.23 1.82 2.506 3.41 4.554 4.34.616.287 2.035.888 2.722.888.817 0 2.15-.515 2.478-1.318.13-.33.244-.73.244-1.088 0-.058 0-.144-.03-.215-.1-.172-2.434-1.39-2.678-1.39zm-2.908 7.593c-1.747 0-3.48-.53-4.942-1.49L7.793 24.41l1.132-3.337a8.955 8.955 0 0 1-1.72-5.272c0-4.955 4.04-8.995 8.997-8.995S25.2 10.845 25.2 15.8c0 4.958-4.04 8.998-8.998 8.998zm0-19.798c-5.96 0-10.8 4.842-10.8 10.8 0 1.964.53 3.898 1.546 5.574L5 27.176l5.974-1.92a10.807 10.807 0 0 0 16.03-9.455c0-5.958-4.842-10.8-10.802-10.8z" fill-rule="evenodd">
+
+                                                               </path></svg>
+                                                                Watsapp Me </span></a>
+                                                            </div>
+                                                            <div>
+                                                            
+                                                                <a
+                                                                    class="fusion-button button-flat fusion-button-default-size button-default button-4 fusion-button-span-yes fusion-button-default-type full-width-btn"
+                                                                    target="_self" href="tel:8777355154"
+                                                                    style="margin-bottom:20px;"><span
+                                                                        class="fusion-button-text" style="	width:100%;
+                                                                        background:  #c22127;
+                                                                        color: #fff;
+                                                                        border: none;
+                                                                        cursor: pointer;
+                                                                        margin-top: 25px;
+                                                                        padding: 10px; 
+                                                                      
+                                                                        font-size: 1.1em;
+                                                                        display: flex;
+                                                                       justify-content: center;
+                                                                        font-weight: 500;">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" class="sidebar-icon" width="40" height="40" viewBox="0 0 40 40" id="phone"><defs><linearGradient id="a" x1="50%" x2="50%" y1="0%" y2="100%"><stop offset="0%" stop-color="#86FC6F"></stop><stop offset="100%" stop-color="#0CD419"></stop></linearGradient></defs><g fill="none" fill-rule="evenodd"><circle cx="20" cy="20" r="20" fill="url(#a)"></circle><path fill="#FFF" d="M23.1179863,24.9844003 C22.7849875,25.1958537 22.3681546,25.2262713 22.0079863,25.0654003 C21.2939863,24.6694003 19.9919863,23.7244003 18.1859863,21.9184003 C16.3799863,20.1124003 15.3509863,18.7234003 14.9519863,18.0184003 C14.7911153,17.658232 14.8215329,17.2413991 15.0329863,16.9084003 L16.0709863,15.0904003 C16.4429863,14.4454003 16.5269863,14.0374003 16.1219863,13.4104003 L13.4549863,9.32740033 C12.6959863,8.12740033 12.3089863,8.18140033 11.6549863,8.48140033 C8.25298626,10.0294003 6.92398626,12.2194003 11.7509863,19.8424003 C13.0529863,21.8974003 17.0309863,26.2474003 20.4239863,28.4494003 C27.6899863,33.1684003 30.0809863,31.7494003 31.4999863,28.4494003 C31.7999863,27.7834003 31.9319863,27.3964003 30.7889863,26.6494003 L26.6609863,24.0244003 C26.0339863,23.6224003 25.7279863,23.5174003 25.0799863,23.8924003 L23.1179863,24.9844003 Z"></path></g></svg>
+                                                                        8777355154</span></a>
+                                                                        
+                                                                       
+                                                            </div>
+<br>
+                                                            
+                                                                <a
+                                                                    class="fusion-button button-flat fusion-button-default-size button-default button-4 fusion-button-span-yes fusion-button-default-type full-width-btn"
+                                                                    target="_self" href="/contact"
+                                                                    style="margin-bottom:20px;"><span
+                                                                        class="fusion-button-text" style="	width:100%;
+                                                                        background:  #c22127;
+                                                                        color: #fff;
+                                                                        border: none;
+                                                                        cursor: pointer;
+                                                                        margin-top:-5px;
+                                                                
+                                                                        padding: 10px; 
+                                                                      
+                                                                        font-size: 1.1em;
+                                                                        display: flex;
+                                                                       justify-content: center;
+                                                                        font-weight: 500;">
+                                                                        <img src="../static/back-image/email.svg" alt="" srcset="" class="sidebar-icon email-ico"> Contact Me</span></a>
+                                        <img src="../static/back-image/court-hammer.jpg" alt="" >
+
+
+                                                            
+                                                            <script type="rocketlazyloadscript"
+                                                                data-rocket-type="text/javascript"></script>
+                                                            <div class='gf_browser_chrome gform_wrapper gravity-theme gform-theme--no-framework'
+                                                                data-form-theme='gravity-theme' data-form-index='0'
+                                                                id='gform_wrapper_11' style='display:none'>
+                                                                <div id='gf_11' class='gform_anchor' tabindex='-1'>
+                                                                </div>
+                                                            <br>
+                                                           
+                                                           
+                                                            </div>
+                                                           
+
+                                                        </div>
+                                                       
+                                                      
+                                                    </div>
+                                                   
+                                                </div>
+                                                <div class="extra-index" >
+                                                    <img src="../static/back-image/lawyer.jpg" alt="Indrajit" srcset=""style="  filter: brightness(90%) contrast(90%); height:350px; width: 400px; ">
+                                                </div>
+                                                <div class="extra-index" >
+                                                    <img src="../static/back-image/lawyer2.jpeg" alt="Indrajit" srcset=""style="  filter: brightness(130%) contrast(80%); height:350px; width: 400px; ">
+                                                </div>
+                                            
+                                                <div class="case-history">
+ 
+                                                  
+                                                  <p style="color: #fff;margin: 40px; font-size: larger; font-weight: 600;">Domestic Case History</p>
+
+                                                  <div class="lient-img-div">
+                                                  <img src="../static/back-image/contact.jpg" alt="client" srcset="" class="client-img">
+                                                  </div>
+
+                                                    <b>Case No : sonarpur ps case 1317/23 </b>
+                                                    
+                                                    <p>
+                                                        
+                                                        Property Division: Dividing assets and liabilities during divorce or separation.
+                                                        
+                                                        Domestic Violence: Representing victims or those accused of domestic violence, obtaining restraining orders, and navigating related legal issues.
+                                                                                                            </p>
+                                                    <br>
+                                                </div>
+
+
+                                                <div class="case-history">
+                                                    <p style="color: #fff;margin: 40px; font-size: larger; font-weight: 600;">Criminal Case History</p>
+                                                    
+                                                    
+                                                  <div class="lient-img-div">
+                                                    <img src="../static/back-image/contact.jpg" alt="client" srcset="" class="client-img">
+                                                  </div>
+                                                    <b>Case No : 34,18 transgender p.p act</b>
+                                                    <p>
+
+Property Division: Dividing assets and liabilities during divorce or separation.
+
+Domestic Violence: Representing victims or those accused of domestic violence, obtaining restraining orders, and navigating related legal issues.
+                                                    
+                                                    <br>
+                                                </div>
+
+
+                                               
+                                            </div>
+
+
+
+
+
+
+
+                                           
+                                        </div>
+                                    </div>
+                                 
+                                </div>
+                       
+                                <div class="fusion-fullwidth fullwidth-box fusion-builder-row-6 fusion-flex-container nonhundred-percent-fullwidth non-hundred-percent-height-scrolling"
+                                    style="background-color: rgba(255,255,255,0);background-position: center center;background-repeat: no-repeat;border-width: 0px 0px 0px 0px;border-color:#e2e2e2;border-style:solid;">
+                                    <div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start"
+                                        style="max-width:calc( 1440px + 50px );margin-left: calc(-50px / 2 );margin-right: calc(-50px / 2 );">
+                                        <div
+                                            class="fusion-layout-column fusion_builder_column fusion-builder-column-13 fusion_builder_column_1_1 1_1 fusion-flex-column">
+                                            <div class="fusion-column-wrapper fusion-flex-justify-content-flex-start fusion-content-layout-column"
+                                                style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;padding: 0px 0px 0px 0px;">
+                                             
+                                         
+                                            </div>
+                                        
+                                        </div>
+                              
+                                    </div>
+                                
+                                </div>
+                        
+                            
+                             
+                              
+                         
+
+                            </div>
+                        </div>
+                    </section>
+
+                </div> 
+            </main> 
+
+
+
+       
+        
+
+        </div> 
+    </div> 
+    <div class="fusion-top-frame"></div>
+    <div class="fusion-bottom-frame"></div>
+    <div class="fusion-boxed-shadow"></div>
+    <a class="fusion-one-page-text-link fusion-page-load-link" tabindex="-1" href="#" aria-hidden="true">Page load
+        link</a>
+
+    <div class="avada-footer-scripts">
+
+
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TMW6H2K" height="0" width="0"
+                style="display:none;visibility:hidden" aria-hidden="true"></iframe></noscript>
+       
+        <script
+            type="text/javascript">var fusionNavIsCollapsed = function (e) { var t; window.innerWidth <= e.getAttribute("data-breakpoint") ? (e.classList.add("collapse-enabled"), e.classList.contains("expanded") || (e.setAttribute("aria-expanded", "false"), window.dispatchEvent(new Event("fusion-mobile-menu-collapsed", { bubbles: !0, cancelable: !0 })))) : (null !== e.querySelector(".menu-item-has-children.expanded .fusion-open-nav-submenu-on-click") && e.querySelector(".menu-item-has-children.expanded .fusion-open-nav-submenu-on-click").click(), e.classList.remove("collapse-enabled"), e.setAttribute("aria-expanded", "true"), null !== e.querySelector(".fusion-custom-menu") && e.querySelector(".fusion-custom-menu").removeAttribute("style")), e.classList.add("no-wrapper-transition"), clearTimeout(t), t = setTimeout(() => { e.classList.remove("no-wrapper-transition") }, 400), e.classList.remove("loading") }, fusionRunNavIsCollapsed = function () { var e, t = document.querySelectorAll(".fusion-menu-element-wrapper"); for (e = 0; e < t.length; e++)fusionNavIsCollapsed(t[e]) }; function avadaGetScrollBarWidth() { var e, t, n, s = document.createElement("p"); return s.style.width = "100%", s.style.height = "200px", (e = document.createElement("div")).style.position = "absolute", e.style.top = "0px", e.style.left = "0px", e.style.visibility = "hidden", e.style.width = "200px", e.style.height = "150px", e.style.overflow = "hidden", e.appendChild(s), document.body.appendChild(e), t = s.offsetWidth, e.style.overflow = "scroll", t == (n = s.offsetWidth) && (n = e.clientWidth), document.body.removeChild(e), jQuery("html").hasClass("awb-scroll") && 10 < t - n ? 10 : t - n } fusionRunNavIsCollapsed(), window.addEventListener("fusion-resize-horizontal", fusionRunNavIsCollapsed);</script>
+
+
+
+
+
+        <link rel='stylesheet' id='avada-max-1c-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/themes/Avada/assets/css/media/max-1c.min.css?ver=7.6'
+            type='text/css' media='only screen and (max-width: 644px)' />
+        <link rel='stylesheet' id='avada-max-2c-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/themes/Avada/assets/css/media/max-2c.min.css?ver=7.6'
+            type='text/css' media='only screen and (max-width: 720px)' />
+        <link rel='stylesheet' id='avada-min-2c-max-3c-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/themes/Avada/assets/css/media/min-2c-max-3c.min.css?ver=7.6'
+            type='text/css' media='only screen and (min-width: 720px) and (max-width: 796px)' />
+        <link rel='stylesheet' id='avada-min-3c-max-4c-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/themes/Avada/assets/css/media/min-3c-max-4c.min.css?ver=7.6'
+            type='text/css' media='only screen and (min-width: 796px) and (max-width: 872px)' />
+        <link rel='stylesheet' id='avada-min-4c-max-5c-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/themes/Avada/assets/css/media/min-4c-max-5c.min.css?ver=7.6'
+            type='text/css' media='only screen and (min-width: 872px) and (max-width: 948px)' />
+        <link rel='stylesheet' id='avada-min-5c-max-6c-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/themes/Avada/assets/css/media/min-5c-max-6c.min.css?ver=7.6'
+            type='text/css' media='only screen and (min-width: 948px) and (max-width: 1024px)' />
+        <link rel='stylesheet' id='avada-min-shbp-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/themes/Avada/assets/css/media/min-shbp.min.css?ver=7.6'
+            type='text/css' media='only screen and (min-width: 801px)' />
+        <link rel='stylesheet' id='avada-max-shbp-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/themes/Avada/assets/css/media/max-shbp.min.css?ver=7.6'
+            type='text/css' media='only screen and (max-width: 800px)' />
+        <link rel='stylesheet' id='avada-max-sh-shbp-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/themes/Avada/assets/css/media/max-sh-shbp.min.css?ver=7.6'
+            type='text/css' media='only screen and (max-width: 800px)' />
+        <link rel='stylesheet' id='avada-min-768-max-1024-p-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/themes/Avada/assets/css/media/min-768-max-1024-p.min.css?ver=7.6'
+            type='text/css'
+            media='only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait)' />
+        <link rel='stylesheet' id='avada-min-768-max-1024-l-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/themes/Avada/assets/css/media/min-768-max-1024-l.min.css?ver=7.6'
+            type='text/css'
+            media='only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape)' />
+        <link rel='stylesheet' id='avada-max-sh-cbp-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/themes/Avada/assets/css/media/max-sh-cbp.min.css?ver=7.6'
+            type='text/css' media='only screen and (max-width: 800px)' />
+        <link rel='stylesheet' id='avada-max-sh-sbp-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/themes/Avada/assets/css/media/max-sh-sbp.min.css?ver=7.6'
+            type='text/css' media='only screen and (max-width: 800px)' />
+        <link rel='stylesheet' id='avada-max-sh-640-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/themes/Avada/assets/css/media/max-sh-640.min.css?ver=7.6'
+            type='text/css' media='only screen and (max-width: 640px)' />
+        <link rel='stylesheet' id='avada-max-shbp-18-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/themes/Avada/assets/css/media/max-shbp-18.min.css?ver=7.6'
+            type='text/css' media='only screen and (max-width: 782px)' />
+        <link rel='stylesheet' id='avada-max-shbp-32-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/themes/Avada/assets/css/media/max-shbp-32.min.css?ver=7.6'
+            type='text/css' media='only screen and (max-width: 768px)' />
+        <link rel='stylesheet' id='avada-min-sh-cbp-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/themes/Avada/assets/css/media/min-sh-cbp.min.css?ver=7.6'
+            type='text/css' media='only screen and (min-width: 800px)' />
+        <link rel='stylesheet' id='avada-max-640-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/themes/Avada/assets/css/media/max-640.min.css?ver=7.6'
+            type='text/css' media='only screen and (max-device-width: 640px)' />
+        <link rel='stylesheet' id='avada-max-main-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/themes/Avada/assets/css/media/max-main.min.css?ver=7.6'
+            type='text/css' media='only screen and (max-width: 1024px)' />
+        <link rel='stylesheet' id='avada-max-cbp-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/themes/Avada/assets/css/media/max-cbp.min.css?ver=7.6'
+            type='text/css' media='only screen and (max-width: 800px)' />
+        <link rel='stylesheet' id='avada-max-640-gravity-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/themes/Avada/assets/css/media/max-640-gravity.min.css?ver=7.6'
+            type='text/css' media='only screen and (max-device-width: 640px)' />
+        <link rel='stylesheet' id='avada-max-sh-cbp-gravity-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/themes/Avada/assets/css/media/max-sh-cbp-gravity.min.css?ver=7.6'
+            type='text/css' media='only screen and (max-width: 800px)' />
+        <link rel='stylesheet' id='fb-max-sh-cbp-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/plugins/fusion-builder/assets/css/media/max-sh-cbp.min.css?ver=3.6'
+            type='text/css' media='only screen and (max-width: 800px)' />
+        <link rel='stylesheet' id='fb-min-768-max-1024-p-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/plugins/fusion-builder/assets/css/media/min-768-max-1024-p.min.css?ver=3.6'
+            type='text/css'
+            media='only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait)' />
+        <link rel='stylesheet' id='fb-max-640-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/plugins/fusion-builder/assets/css/media/max-640.min.css?ver=3.6'
+            type='text/css' media='only screen and (max-device-width: 640px)' />
+        <link rel='stylesheet' id='fb-max-1c-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/plugins/fusion-builder/assets/css/media/max-1c.css?ver=3.6'
+            type='text/css' media='only screen and (max-width: 644px)' />
+        <link rel='stylesheet' id='fb-max-2c-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/plugins/fusion-builder/assets/css/media/max-2c.css?ver=3.6'
+            type='text/css' media='only screen and (max-width: 720px)' />
+        <link rel='stylesheet' id='fb-min-2c-max-3c-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/plugins/fusion-builder/assets/css/media/min-2c-max-3c.css?ver=3.6'
+            type='text/css' media='only screen and (min-width: 720px) and (max-width: 796px)' />
+        <link rel='stylesheet' id='fb-min-3c-max-4c-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/plugins/fusion-builder/assets/css/media/min-3c-max-4c.css?ver=3.6'
+            type='text/css' media='only screen and (min-width: 796px) and (max-width: 872px)' />
+        <link rel='stylesheet' id='fb-min-4c-max-5c-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/plugins/fusion-builder/assets/css/media/min-4c-max-5c.css?ver=3.6'
+            type='text/css' media='only screen and (min-width: 872px) and (max-width: 948px)' />
+        <link rel='stylesheet' id='fb-min-5c-max-6c-css'
+            href='https://www.strategiccriminaldefence.com/wp-content/plugins/fusion-builder/assets/css/media/min-5c-max-6c.css?ver=3.6'
+            type='text/css' media='only screen and (min-width: 948px) and (max-width: 1024px)' />
+
+
+
+
+        <script type='text/javascript' id='toc-front-js-extra'>
+       
+            var tocplus = { "smooth_scroll": "1", "visibility_show": "+", "visibility_hide": "-", "visibility_hide_by_default": "1", "width": "Auto", "smooth_scroll_offset": "200" };
+    
+        </script>
+        <script type='text/javascript'
+            src='https://www.strategiccriminaldefence.com/wp-content/plugins/table-of-contents-plus/front.min.js?ver=2302'
+            id='toc-front-js' defer></script>
+        <script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='rocket-browser-checker-js-after'>
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+        <script type='text/javascript' id='rocket-preload-links-js-extra'>
+            
+            var RocketPreloadLinksConfig = { "excludeUris": "\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|http:\/\/(\/%5B\/%5D+)?\/(index.php\/)?(.*)wp-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/", "usesTrailingSlash": "1", "imageExt": "jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php", "fileExt": "jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm", "siteUrl": "https:\/\/www.strategiccriminaldefence.com", "onHoverDelay": "100", "rateThrottle": "3" };
+      
+        </script>
+        <script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='rocket-preload-links-js-after'>
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+        <script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript'
+            data-rocket-src='https://www.strategiccriminaldefence.com/wp-content/cache/min/1/wp-content/themes/Avada-Child-Theme/script.js?ver=1686068447'
+            id='child-script-js' defer></script>
+        <script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript'
+            data-rocket-src='https://www.strategiccriminaldefence.com/wp-content/cache/min/1/wp-content/themes/Avada-Child-Theme/pre-script.js?ver=1686068447'
+            id='pre-script-js' defer></script>
+        <script type="rocketlazyloadscript" data-rocket-type='text/javascript'
+            data-rocket-src='https://www.strategiccriminaldefence.com/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.13.9'
+            id='regenerator-runtime-js' defer></script>
+        <script type="rocketlazyloadscript" data-rocket-type='text/javascript'
+            data-rocket-src='https://www.strategiccriminaldefence.com/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0'
+            id='wp-polyfill-js'></script>
+        <script type="rocketlazyloadscript" data-rocket-type='text/javascript'
+            data-rocket-src='https://www.strategiccriminaldefence.com/wp-includes/js/dist/dom-ready.min.js?ver=ecda74de0221e1c2ce5c57cbb5af09d5'
+            id='wp-dom-ready-js' defer></script>
+        <script type="rocketlazyloadscript" data-rocket-type='text/javascript'
+            data-rocket-src='https://www.strategiccriminaldefence.com/wp-includes/js/dist/hooks.min.js?ver=1e58c8c5a32b2e97491080c5b10dc71c'
+            id='wp-hooks-js'></script>
+        <script type="rocketlazyloadscript" data-rocket-type='text/javascript'
+            data-rocket-src='https://www.strategiccriminaldefence.com/wp-includes/js/dist/i18n.min.js?ver=30fcecb428a0e8383d3776bcdd3a7834'
+            id='wp-i18n-js'></script>
+        <script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='wp-i18n-js-after'>
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+</script>
+        <script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='wp-a11y-js-translations'>
+( function( domain, translations ) {
+	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
+	localeData[""].domain = domain;
+	wp.i18n.setLocaleData( localeData, domain );
+} )( "default", {"translation-revision-date":"2022-11-08 01:49:08+0000","generator":"GlotPress\/4.0.0-alpha.4","domain":"messages","locale_data":{"messages":{"":{"domain":"messages","plural-forms":"nplurals=2; plural=n != 1;","lang":"en_CA"},"Notifications":["Notifications"]}},"comment":{"reference":"wp-includes\/js\/dist\/a11y.js"}} );
+</script>
+        <script type="rocketlazyloadscript" data-rocket-type='text/javascript'
+            data-rocket-src='https://www.strategiccriminaldefence.com/wp-includes/js/dist/a11y.min.js?ver=68e470cf840f69530e9db3be229ad4b6'
+            id='wp-a11y-js' defer></script>
+        <script type='text/javascript' defer='defer'
+            src='https://www.strategiccriminaldefence.com/wp-content/plugins/gravityforms/js/jquery.json.min.js?ver=2.7.17'
+            id='gform_json-js'></script>
+        <script type='text/javascript' id='gform_gravityforms-js-extra'>
+
+            var gform_i18n = { "datepicker": { "days": { "monday": "Mo", "tuesday": "Tu", "wednesday": "We", "thursday": "Th", "friday": "Fr", "saturday": "Sa", "sunday": "Su" }, "months": { "january": "January", "february": "February", "march": "March", "april": "April", "may": "May", "june": "June", "july": "July", "august": "August", "september": "September", "october": "October", "november": "November", "december": "December" }, "firstDay": 1, "iconText": "Select date" } };
+            var gf_legacy_multi = [];
+            var gform_gravityforms = { "strings": { "invalid_file_extension": "This type of file is not allowed. Must be one of the following:", "delete_file": "Delete this file", "in_progress": "in progress", "file_exceeds_limit": "File exceeds size limit", "illegal_extension": "This type of file is not allowed.", "max_reached": "Maximum number of files reached", "unknown_error": "There was a problem while saving the file on the server", "currently_uploading": "Please wait for the uploading to complete", "cancel": "Cancel", "cancel_upload": "Cancel this upload", "cancelled": "Cancelled" }, "vars": { "images_url": "https:\/\/www.strategiccriminaldefence.com\/wp-content\/plugins\/gravityforms\/images" } };
+            var gf_global = { "gf_currency_config": { "name": "U.S. Dollar", "symbol_left": "$", "symbol_right": "", "symbol_padding": "", "thousand_separator": ",", "decimal_separator": ".", "decimals": 2, "code": "USD" }, "base_url": "https:\/\/www.strategiccriminaldefence.com\/wp-content\/plugins\/gravityforms", "number_formats": [], "spinnerUrl": "https:\/\/www.strategiccriminaldefence.com\/wp-content\/plugins\/gravityforms\/images\/spinner.svg", "version_hash": "6285a076c8c42947227adba8f3ac2cdf", "strings": { "newRowAdded": "New row added.", "rowRemoved": "Row removed", "formSaved": "The form has been saved.  The content contains the link to return and complete the form." } };
+            var gf_global = { "gf_currency_config": { "name": "U.S. Dollar", "symbol_left": "$", "symbol_right": "", "symbol_padding": "", "thousand_separator": ",", "decimal_separator": ".", "decimals": 2, "code": "USD" }, "base_url": "https:\/\/www.strategiccriminaldefence.com\/wp-content\/plugins\/gravityforms", "number_formats": [], "spinnerUrl": "https:\/\/www.strategiccriminaldefence.com\/wp-content\/plugins\/gravityforms\/images\/spinner.svg", "version_hash": "6285a076c8c42947227adba8f3ac2cdf", "strings": { "newRowAdded": "New row added.", "rowRemoved": "Row removed", "formSaved": "The form has been saved.  The content contains the link to return and complete the form." } };
+
+        </script>
+        <script type="rocketlazyloadscript" data-rocket-type='text/javascript' defer='defer'
+            data-rocket-src='https://www.strategiccriminaldefence.com/wp-content/plugins/gravityforms/js/gravityforms.min.js?ver=2.7.17'
+            id='gform_gravityforms-js'></script>
+        <script type='text/javascript' id='gform_conditional_logic-js-extra'>
+          
+            var gf_legacy = { "is_legacy": "" };
+            var gf_legacy = { "is_legacy": "" };
+     
+        </script>
+        <script type='text/javascript' defer='defer'
+            src='https://www.strategiccriminaldefence.com/wp-content/plugins/gravityforms/js/conditional_logic.min.js?ver=2.7.17'
+            id='gform_conditional_logic-js'></script>
+        <script type="rocketlazyloadscript" data-rocket-type='text/javascript' defer='defer'
+            data-rocket-src='https://www.google.com/recaptcha/api.js?hl=en&#038;ver=5.9.8#038;render=explicit'
+            id='gform_recaptcha-js'></script>
+        <script type='text/javascript' defer='defer'
+            src='https://www.strategiccriminaldefence.com/wp-content/plugins/gravityforms/js/jquery.maskedinput.min.js?ver=2.7.17'
+            id='gform_masked_input-js'></script>
+        <script type="rocketlazyloadscript" data-rocket-type='text/javascript' defer='defer'
+            data-rocket-src='https://www.strategiccriminaldefence.com/wp-content/plugins/gravityforms/js/placeholders.jquery.min.js?ver=2.7.17'
+            id='gform_placeholder-js'></script>
+        <script type="rocketlazyloadscript" data-rocket-type='text/javascript' defer='defer'
+            data-rocket-src='https://www.strategiccriminaldefence.com/wp-content/plugins/gravityforms/assets/js/dist/utils.min.js?ver=59d951b75d934ae23e0ea7f9776264aa'
+            id='gform_gravityforms_utils-js'></script>
+        <script type="rocketlazyloadscript" data-rocket-type='text/javascript' defer='defer'
+            data-rocket-src='https://www.strategiccriminaldefence.com/wp-content/plugins/gravityforms/assets/js/dist/vendor-theme.min.js?ver=4ef53fe41c14a48b294541d9fc37387e'
+            id='gform_gravityforms_theme_vendors-js'></script>
+        <script type='text/javascript' id='gform_gravityforms_theme-js-extra'>
+        
+            var gform_theme_config = { "common": { "form": { "honeypot": { "version_hash": "6285a076c8c42947227adba8f3ac2cdf" } } }, "hmr_dev": "", "public_path": "https:\/\/www.strategiccriminaldefence.com\/wp-content\/plugins\/gravityforms\/assets\/js\/dist\/" };
+          
+        </script>
+        <script type="rocketlazyloadscript" data-rocket-type='text/javascript' defer='defer'
+            data-rocket-src='https://www.strategiccriminaldefence.com/wp-content/plugins/gravityforms/assets/js/dist/scripts-theme.min.js?ver=f4d12a887a23a8c5755fd2b956bc8fcf'
+            id='gform_gravityforms_theme-js'></script>
+        <script type="rocketlazyloadscript" data-rocket-type='text/javascript'
+            data-rocket-src='https://www.strategiccriminaldefence.com/wp-content/uploads/fusion-scripts/29d060e8595a54450281841c3ceea59d.min.js?ver=3.6'
+            id='fusion-scripts-js' defer></script>
+        <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+gform.initializeOnLoaded( function() { jQuery(document).on('gform_post_render', function(event, formId, currentPage){if(formId == 11) {gf_global["number_formats"][11] = {"1":{"price":false,"value":false},"10":{"price":false,"value":false},"11":{"price":false,"value":false},"3":{"price":false,"value":false},"2":{"price":false,"value":false},"12":{"price":false,"value":false},"13":{"price":false,"value":false},"4":{"price":false,"value":false},"6":{"price":false,"value":false}};if(window['jQuery']){if(!window['gf_form_conditional_logic'])window['gf_form_conditional_logic'] = new Array();window['gf_form_conditional_logic'][11] = { logic: { 0: {"field":{"actionType":"hide","logicType":"any","rules":[{"fieldId":"4","operator":"contains","value":"\u0438"},{"fieldId":"4","operator":"contains","value":"http"},{"fieldId":"4","operator":"contains","value":"@"},{"fieldId":"4","operator":"contains","value":"unsubscribe"}]},"section":null} }, dependents: { 0: [0] }, animation: 0, defaults: {"12":["choice_11_12_0"],"13":"https:\/\/www.strategiccriminaldefence.com\/"}, fields: {"1":[0],"10":[0],"11":[0],"3":[0],"2":[0],"12":[0],"13":[0],"4":[0],"6":[0]} }; if(!window['gf_number_format'])window['gf_number_format'] = 'decimal_dot';jQuery(document).ready(function(){gform.utils.trigger({ event: 'gform/conditionalLogic/init/start', native: false, data: { formId: 11, fields: null, isInit: true } });window['gformInitPriceFields']();gf_apply_rules(11, [0], true);jQuery('#gform_wrapper_11').show();jQuery(document).trigger('gform_post_conditional_logic', [11, null, true]);gform.utils.trigger({ event: 'gform/conditionalLogic/init/end', native: false, data: { formId: 11, fields: null, isInit: true } });} );} if(typeof Placeholders != 'undefined'){
+                        Placeholders.enable();
+                    }jQuery('#input_11_2').mask('(999) 999-9999').bind('keypress', function(e){if(e.which == 13){jQuery(this).blur();} } );} } );jQuery(document).on('gform_post_conditional_logic', function(event, formId, fields, isInit){} ) } );
+</script>
+        <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+gform.initializeOnLoaded( function() {jQuery(document).trigger('gform_post_render', [11, 1]);gform.utils.trigger({ event: 'gform/postRender', native: false, data: { formId: 11, currentPage: 1 } });} );
+</script>
+        <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+gform.initializeOnLoaded( function() { jQuery(document).on('gform_post_render', function(event, formId, currentPage){if(formId == 6) {gf_global["number_formats"][6] = {"1":{"price":false,"value":false},"10":{"price":false,"value":false},"11":{"price":false,"value":false},"3":{"price":false,"value":false},"2":{"price":false,"value":false},"12":{"price":false,"value":false},"13":{"price":false,"value":false},"4":{"price":false,"value":false},"6":{"price":false,"value":false}};if(window['jQuery']){if(!window['gf_form_conditional_logic'])window['gf_form_conditional_logic'] = new Array();window['gf_form_conditional_logic'][6] = { logic: { 0: {"field":{"actionType":"hide","logicType":"any","rules":[{"fieldId":"4","operator":"contains","value":"\u0438"},{"fieldId":"4","operator":"contains","value":"http"},{"fieldId":"4","operator":"contains","value":"@"},{"fieldId":"4","operator":"contains","value":"unsubscribe"}]},"section":null} }, dependents: { 0: [0] }, animation: 0, defaults: {"12":["choice_6_12_0"],"13":"https:\/\/www.strategiccriminaldefence.com\/"}, fields: {"1":[0],"10":[0],"11":[0],"3":[0],"2":[0],"12":[0],"13":[0],"4":[0],"6":[0]} }; if(!window['gf_number_format'])window['gf_number_format'] = 'decimal_dot';jQuery(document).ready(function(){gform.utils.trigger({ event: 'gform/conditionalLogic/init/start', native: false, data: { formId: 6, fields: null, isInit: true } });window['gformInitPriceFields']();gf_apply_rules(6, [0], true);jQuery('#gform_wrapper_6').show();jQuery(document).trigger('gform_post_conditional_logic', [6, null, true]);gform.utils.trigger({ event: 'gform/conditionalLogic/init/end', native: false, data: { formId: 6, fields: null, isInit: true } });} );} if(typeof Placeholders != 'undefined'){
+                        Placeholders.enable();
+                    }jQuery('#input_6_2').mask('(999) 999-9999').bind('keypress', function(e){if(e.which == 13){jQuery(this).blur();} } );} } );jQuery(document).on('gform_post_conditional_logic', function(event, formId, fields, isInit){} ) } );
+</script>
+        <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+gform.initializeOnLoaded( function() {jQuery(document).trigger('gform_post_render', [6, 1]);gform.utils.trigger({ event: 'gform/postRender', native: false, data: { formId: 6, currentPage: 1 } });} );
+</script>
+        <script type="rocketlazyloadscript" data-minify="1"
+            data-rocket-src="https://www.strategiccriminaldefence.com/wp-content/cache/min/1/p/platform.js?ver=1686068447"
+            defer></script>
+     
+
+        <script type="rocketlazyloadscript">
+// Passive event listeners
+jQuery.event.special.touchstart = {
+    setup: function( _, ns, handle ) {
+        this.addEventListener("touchstart", handle, { passive: !ns.includes("noPreventDefault") });
+    }
+};
+jQuery.event.special.touchmove = {
+    setup: function( _, ns, handle ) {
+        this.addEventListener("touchmove", handle, { passive: !ns.includes("noPreventDefault") });
+    }
+};    
+</script>
+        <script>window.lazyLoadOptions = [{ elements_selector: "img[data-lazy-src],.rocket-lazyload", data_src: "lazy-src", data_srcset: "lazy-srcset", data_sizes: "lazy-sizes", class_loading: "lazyloading", class_loaded: "lazyloaded", threshold: 300, callback_loaded: function (element) { if (element.tagName === "IFRAME" && element.dataset.rocketLazyload == "fitvidscompatible") { if (element.classList.contains("lazyloaded")) { if (typeof window.jQuery != "undefined") { if (jQuery.fn.fitVids) { jQuery(element).parent().fitVids() } } } } } }, { elements_selector: ".rocket-lazyload", data_src: "lazy-src", data_srcset: "lazy-srcset", data_sizes: "lazy-sizes", class_loading: "lazyloading", class_loaded: "lazyloaded", threshold: 300, }]; window.addEventListener('LazyLoad::Initialized', function (e) {
+                var lazyLoadInstance = e.detail.instance; if (window.MutationObserver) {
+                    var observer = new MutationObserver(function (mutations) {
+                        var image_count = 0; var iframe_count = 0; var rocketlazy_count = 0; mutations.forEach(function (mutation) {
+                            for (var i = 0; i < mutation.addedNodes.length; i++) {
+                                if (typeof mutation.addedNodes[i].getElementsByTagName !== 'function') { continue }
+                                if (typeof mutation.addedNodes[i].getElementsByClassName !== 'function') { continue }
+                                images = mutation.addedNodes[i].getElementsByTagName('img'); is_image = mutation.addedNodes[i].tagName == "IMG"; iframes = mutation.addedNodes[i].getElementsByTagName('iframe'); is_iframe = mutation.addedNodes[i].tagName == "IFRAME"; rocket_lazy = mutation.addedNodes[i].getElementsByClassName('rocket-lazyload'); image_count += images.length; iframe_count += iframes.length; rocketlazy_count += rocket_lazy.length; if (is_image) { image_count += 1 }
+                                if (is_iframe) { iframe_count += 1 }
+                            }
+                        }); if (image_count > 0 || iframe_count > 0 || rocketlazy_count > 0) { lazyLoadInstance.update() }
+                    }); var b = document.getElementsByTagName("body")[0]; var config = { childList: !0, subtree: !0 }; observer.observe(b, config)
+                }
+            }, !1)</script>
+        <script data-no-minify="1" async
+            src="https://www.strategiccriminaldefence.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script>
+    </div>
+
+    <div class="to-top-container to-top-right">
+        <a href="#" id="toTop" class="fusion-top-top-link">
+            <span class="screen-reader-text">Go to Top</span>
+        </a>
+    </div>
+
+
+
+
+  <b>
+    <div class="fq-container">
+    <div class="container-question">
+      <h2 style="padding-top: 0px; margin-top: 0px;color:#000000;">Frequently Asked Questions</h2>
+      <div class="accordion">
+        <div class="accordion-item">
+          <button id="accordion-button-1" aria-expanded="false">
+            <span class="accordion-title">What criminal offence do you defend</span>
+            <span class="icon" aria-hidden="true"></span>
+          </button>
+          <div class="accordion-content">
+            <p style="color: #000000; font-size: 16px; font-weight: 600;" >
+              We have successfully defended a range of criminal offences including but not limited to:
+
+<li>Impaired Driving (Immediate Roadside Sanctions, Criminal Driving Charges, etc)</li>
+<li>Domestic Violence</li>
+<li>Drug Offences (Possession, Trafficking and Distribution, Importation, Manufacturing etc.)</li>
+<li>Violent Offences (Assault, Aggravated Assault, Sexual Assault etc.)</li>
+<li>Youth Offences</li>
+<li>Administration of Justice (Failure to Comply with Conditions, Escape or Help Escape from Custody, Prisoner Unlawfully at Large, Failure to Appear, Breach of Probation etc.)</li>
+<li>Criminal Driving</li>
+<li>Assault and Threats</li>
+<li>Sexual Offences (Sexual Interference, Sexual Exploitation, Sexual Assault etc.)</li>
+<li>Property Crimes (Breaking and Entering, Being Unlawfully in a Dwelling, Mischief, Theft, Robbery, Trespassing at Night, Forcible Entry etc.)</li>
+<li>Traffic Crimes and Traffic Violations</li>
+<li>Pardons and Record Suspension</li>
+              
+            </p>
+         
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button id="accordion-button-2" aria-expanded="false">
+            <span class="accordion-title">What is your Location?</span>
+            <span class="icon" aria-hidden="true">
+</span>
+          </button>
+          <div class="accordion-content">
+            <p>
+              128/A, Satyen Roy RdIndrajit Pally, Behala, Kolkata, West Bengal 700034
+            </p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button id="accordion-button-3" aria-expanded="false">
+            <span class="accordion-title">Should i provide a statement to the police?</span>
+            <span class="icon" aria-hidden="true"></span>
+          </button>
+          <div class="accordion-content">
+            <p>
+                You have a constitutionally protected right to silence if and when you are arrested or detained by police. This means that you do not need to give a statement, despite any recommendations suggesting otherwise. In other words, you are under no obligation to make a statement which may be self-incriminating.
+             
+
+            </p>
+            
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button id="accordion-button-4" aria-expanded="false">
+            <span class="accordion-title">How much do your services cost?</span>
+            <span class="icon" aria-hidden="true"></span>
+          </button>
+          <div class="accordion-content">
+            <p>
+                The cost of our services depends upon how complex your file is.
+          </div>
+        </div>
+     
+      </div>
+    </div>
+    </div>
+
+  </section>
+
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/f&q.js') }}"></script>
+
+
+
+
+</body>
+
+
+
+{% endblock body %}
+
+</html>
+
+
+
+
+
+
+
+
+
