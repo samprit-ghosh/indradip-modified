@@ -54,9 +54,10 @@ referrerpolicy="no-referrer"
         
             <ul>
                 {% if not is_home %}
-                    <li><a href="/">home</a></li>
+                    <li><a href="/">Home</a></li>
                 {% endif %}
-                <li><a href="/contact">contact</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/admin/dashboard">Admin</a></li>
         
                 {% if session.get('user') %}
                 <li><a href="/logout">Logout</a></li>
